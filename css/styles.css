@@ -302,6 +302,97 @@ p.lead{
   margin-top: 10px;
 }
 
+/* ------------------------------
+   RESPONSIVE + EXTRA QUERIES
+------------------------------ */
+
+/* Extra Large Screens (1400px+) */
+@media (min-width:1400px){
+  .wrap{max-width:1400px; padding:40px;}
+  h1{font-size:48px;}
+  .grid{gap:28px;}
+  .hero-card{padding:48px;}
+}
+
+/* <=1200px */
+@media (max-width:1200px){
+  .hero{gap:24px;}
+  .grid{gap:18px;}
+  header{padding:14px 0;}
+  .hero-card{padding:28px;}
+}
+
+/* <=1000px */
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr;}
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .gallery{grid-template-columns:repeat(3,1fr);}
+  .contact{grid-template-columns:1fr;}
+  nav{display:none;}
+}
+
+/* <=900px */
+@media (max-width:900px){
+  h1{font-size:clamp(26px,5vw,36px);}
+  .stats{flex-wrap:wrap;}
+  .stat{min-width:100px;}
+  .grid{grid-template-columns:repeat(2,1fr); gap:16px;}
+  .gallery{grid-template-columns:repeat(3,1fr);}
+}
+
+/* <=768px */
+@media (max-width:768px){
+  .hero{gap:20px;}
+  .hero-card{padding:26px;}
+  p.lead{font-size:15px;}
+  .card .thumb{height:150px;}
+}
+
+/* <=640px */
+@media(max-width:640px){
+  h1{font-size:clamp(24px,6vw,32px);}
+  .grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:repeat(2,1fr); gap:8px;}
+  .logo{width:48px; height:48px;}
+  .wrap{padding:18px;}
+}
+
+/* <=480px */
+@media (max-width:480px){
+  .wrap{padding:14px;}
+  h1{font-size:22px;}
+  .hero-card{padding:22px;}
+  .card .thumb{height:140px;}
+  .stats{flex-direction:column; gap:10px;}
+}
+
+/* <=360px */
+@media (max-width:360px){
+  h1{font-size:20px;}
+  .card{padding:14px;}
+  .card .thumb{height:120px;}
+  button{padding:12px;}
+  label{font-size:12px;}
+}
+
+/* Modo táctil */
+@media (hover:none){
+  a, button{transition:none;}
+  .card:hover,
+  .hero-card:hover,
+  .gallery .g:hover{transform:none; filter:none;}
+}
+
+/* Helpers */
+.muted{color:var(--muted);}
+.pill{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  font-weight:700;
+}
+
 /* ============================
    SECCIÓN TESTIMONIOS
 ============================ */
@@ -934,6 +1025,7 @@ footer{
   background:rgba(255,255,255,0.06);
   font-weight:700;
 }
+
 
 
 
