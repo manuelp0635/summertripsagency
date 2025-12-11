@@ -302,6 +302,25 @@ p.lead{
   margin-top: 10px;
 }
 
+/* ---------------- MODAL ---------------- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,0.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:60;
+}
+.modal.show{display:flex;}
+
+.modal .mimg{
+  max-width:90%;
+  max-height:80%;
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(2,6,23,0.8);
+}
+
 /* ------------------------------
    RESPONSIVE + EXTRA QUERIES
 ------------------------------ */
@@ -1025,6 +1044,7 @@ footer{
   background:rgba(255,255,255,0.06);
   font-weight:700;
 }
+
 
 
 
