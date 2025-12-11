@@ -179,6 +179,130 @@ p.lead{
 }
 
 /* ============================
+       MENÚ DESKTOP
+============================ */
+#mainNav {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+#mainNav a {
+  text-decoration: none;
+  color: var(--muted);
+  transition: 0.3s;
+}
+
+#mainNav a:hover {
+  color: var(--accent);
+}
+
+/* ============================
+      HAMBURGER BUTTON
+============================ */
+.menu-btn {
+  display: none;
+  width: 30px;
+  height: 22px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.menu-btn span {
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* Animación a X */
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mostrar solo en móvil */
+@media (max-width: 1000px) {
+  #mainNav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+}
+
+/* ============================
+        BACKDROP
+============================ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.menu-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* ============================
+        MENÚ LATERAL
+============================ */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 78%;
+  max-width: 300px;
+  background: var(--card);
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  /* Oculto por defecto */
+  transform: translateX(-100%);
+  transition: 0.35s ease;
+  z-index: 99999;
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.mobile-menu a.cta {
+  background: var(--accent);
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ============================
    SECCIÓN TESTIMONIOS
 ============================ */
 .testimonios {
@@ -810,5 +934,6 @@ footer{
   background:rgba(255,255,255,0.06);
   font-weight:700;
 }
+
 
 
