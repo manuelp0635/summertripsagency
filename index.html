@@ -1325,15 +1325,71 @@
       <img class="mimg" id="mimg" src="" alt="" />
     </div>
 
-    <!--
-    DESPLIEGUE RÁPIDO
-    - CodePen: Crear nuevo Pen y pegar este código en el HTML panel (incluye CSS y JS). Preview público automático.
-    - Netlify: Guardar como index.html en un repo de GitHub y desplegar en Netlify (arrastra carpeta o conecta repo). Te dará un enlace externo.
-    - GitHub Pages: Subir index.html a la rama gh-pages o a la rama main y activar Pages en el repo.
+      <!-- BOTÓN FLOTANTE -->
+<div class="chat-float-btn" id="openChat" aria-label="Abrir chat">
+  🌴
+</div>
 
-    NOTA: Las imágenes usan Unsplash para demo. Reemplaza por tus imágenes o CDN para producción.
-  --></body>
+<!-- MODAL CHAT -->
+<div class="chatbot" id="chatbot" style="display: none;">
+  
+  <!-- HEADER -->
+  <div class="chat-header">
+    🌴 Tabosummer – Asesor Virtual
+    <span id="closeChat" style="cursor:pointer;">✕</span>
+  </div>
+
+  <!-- CUERPO DEL CHAT -->
+  <div class="chat-body" id="chatBody">
+    <div class="bot">
+      👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual.  
+      <br />¿Qué deseas hacer?
+    </div>
+
+    <div class="bot">
+      1️⃣ Consultar horarios<br />
+      2️⃣ Agendar cita<br />
+      3️⃣ Requisitos de exámenes<br />
+      4️⃣ Resultados<br />
+      5️⃣ Hablar con un agente
+    </div>
+  </div>
+
+  <!-- OPCIONES -->
+  <div class="chat-options" id="options">
+    <button>1️⃣ Consultar horarios</button>
+    <button>2️⃣ Agendar cita</button>
+    <button>3️⃣ Requisitos de exámenes</button>
+    <button>4️⃣ Resultados</button>
+    <button>5️⃣ Hablar con un agente</button>
+  </div>
+
+  <!-- INPUT 
+  <div class="chat-input">
+    <input type="text" placeholder="Escribe aquí..." />
+    <button aria-label="Enviar mensaje">➤</button>
+  </div> -->
+
+  <!-- ICONOS SOCIALES 
+  <div class="chat-socials">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+      alt="WhatsApp"
+    />
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+      alt="Facebook"
+    />
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+      alt="Instagram"
+    />
+  </div>-->
+
+</div>
+    </body>
 </html>
+
 
 
 
