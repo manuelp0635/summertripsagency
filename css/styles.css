@@ -596,49 +596,47 @@ img {
 /* ============================
    SECCIÓN TESTIMONIOS
 ============================ */
+/* ===============================
+   CONTENEDOR GENERAL TESTIMONIOS
+================================ */
 .testimonios {
-  padding: 80px 20px;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.testimonios h2 {
-  font-size: 2.4rem;
-  color: white;
-  margin-bottom: 40px;
-  font-weight: 700;
-}
-
-/* CONTENEDOR */
-.testimonios-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
 }
 
-/* TARJETA */
+/* ===============================
+   TARJETA TESTIMONIO (OPTIMIZADA)
+================================ */
 .testimonio-card {
-  background: var(--glass);
-  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 36, 0.85); /* fallback sólido */
   border: 1px solid rgba(255,255,255,0.08);
   padding: 30px;
   border-radius: 20px;
   color: var(--muted);
   box-shadow: 0 0 25px rgba(0,0,0,0.35);
-  transition: transform .25s ease, box-shadow .25s ease;
+
+  /* Performance fix */
+  backdrop-filter: blur(0);
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
+
+  transition:
+    backdrop-filter .4s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .testimonio-card:hover {
+  backdrop-filter: blur(10px);
   transform: translateY(-5px);
   box-shadow: 0 10px 35px rgba(0,0,0,0.45);
 }
 
-/* FOTO DEL CLIENTE */
+/* ===============================
+   FOTO DEL CLIENTE
+================================ */
 .testimonio-foto {
   width: 95px;
   height: 95px;
@@ -652,37 +650,60 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* TEXTO DEL TESTIMONIO */
+/* ===============================
+   TEXTO DEL TESTIMONIO
+================================ */
 .testimonio-texto {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 18px;
-  color: white;
+  color: #ffffff;
+  text-align: center;
 }
 
-/* NOMBRE DEL CLIENTE */
+/* ===============================
+   NOMBRE DEL CLIENTE
+================================ */
 .testimonio-nombre {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--accent-2);
+  text-align: center;
 }
 
-/* RESPONSIVE AJUSTES */
+/* ===============================
+   RESPONSIVE TABLET
+================================ */
 @media (max-width: 768px) {
   .testimonios h2 {
     font-size: 2rem;
   }
-  
+
+  /* Desactivar blur en mobile para mejor rendimiento */
   .testimonio-card {
-    padding: 25px;
+    backdrop-filter: none;
+    background: rgba(15, 23, 36, 0.9);
+  }
+
+  .testimonio-card:hover {
+    transform: none;
+    box-shadow: 0 0 25px rgba(0,0,0,0.35);
   }
 }
 
+/* ===============================
+   RESPONSIVE MOBILE
+================================ */
 @media (max-width: 480px) {
   .testimonio-texto {
-    font-size: .95rem;
+    font-size: 0.95rem;
+  }
+
+  .testimonio-card {
+    padding: 25px;
   }
 }
 
@@ -690,8 +711,9 @@ img {
    FIX ULTRA SMALL DEVICES (≤ 360px)
 ================================== */
 @media (max-width: 360px) {
-  /* Ajuste general para evitar scroll lateral */
-  body, html {
+  /* Evitar scroll lateral */
+  body,
+  html {
     overflow-x: hidden !important;
   }
 
@@ -700,55 +722,28 @@ img {
     box-sizing: border-box;
   }
 
-  /* Sección contacto (ajustes críticos) */
-  .contacto {
-    padding: 25px 10px !important;
-  }
-
-  .contacto-container,
-  .contacto-grid {
-    padding: 0;
-    gap: 12px !important;
-  }
-
-  .contacto input,
-  .contacto textarea {
-    padding: 10px !important;
-    font-size: 0.85rem !important;
-  }
-
-  .contacto button {
-    padding: 12px !important;
-    font-size: 0.9rem !important;
-  }
-
-  .contacto iframe {
-    width: 100% !important;
-    height: 250px !important;
-  }
-
-  /* Títulos más compactos */
-  .contacto h2,
+  /* Títulos compactos */
   .testimonios h2 {
     font-size: 1.4rem !important;
     line-height: 1.3;
   }
 
-  /* Testimonios */
+  /* Tarjeta */
   .testimonio-card {
     padding: 20px !important;
   }
 
+  /* Texto */
   .testimonio-texto {
     font-size: 0.85rem !important;
   }
 
+  /* Foto */
   .testimonio-foto {
     width: 75px !important;
     height: 75px !important;
   }
 }
-
 /* Contact */
 .contact{
   display:grid;
@@ -972,6 +967,7 @@ footer{
 }
 
 .modal.show{display:flex}
+
 
 
 
