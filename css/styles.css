@@ -193,6 +193,51 @@ img {
   transform: translateY(-0.35rem);
 }
 
+/* SCROLL HORIZONTAL DESTINOS */
+.destinos-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 320px);
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 4px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll bonito */
+.destinos-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.destinos-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 6px;
+}
+.destinos-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Cada card se alinea al scroll */
+.destinos-scroll .card {
+  scroll-snap-align: start;
+  min-width: 280px;
+}
+
+/* Footer de la card */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.btn-reservar {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+
 /* ======================================
    THUMB / IMAGEN
 ====================================== */
@@ -1133,6 +1178,7 @@ footer{
     bottom: 86px;
   }
 }
+
 
 
 
