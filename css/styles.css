@@ -130,6 +130,124 @@ p.lead{
   font-size:18px;
 }
 
+/* ============================
+      HAMBURGER BUTTON
+============================ */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-btn span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* SOLO MÓVIL */
+@media (max-width: 1000px) {
+  .menu-btn {
+    display: flex;
+  }
+}
+
+/* Animación a X */
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mostrar solo en móvil */
+@media (max-width: 1000px) {
+  #mainNav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+}
+
+/* ============================
+        BACKDROP
+============================ */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.menu-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* ============================
+        MENÚ LATERAL
+============================ */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 24px;
+  gap: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+/* MENÚ ACTIVO */
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.mobile-menu a.cta {
+  background: var(--accent);
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* ----------------- DESTINOS ---------------- */
 
 /* ======================================
@@ -1178,6 +1296,7 @@ footer{
     bottom: 86px;
   }
 }
+
 
 
 
