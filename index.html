@@ -1423,9 +1423,30 @@
     <script src="./js/formulario.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/asesor.js"></script>
+
+    <!-- JS menu lateral -->
+    <script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+</script>
+
+<script>
+  const links = document.querySelectorAll(".mobile-menu a");
+
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  });
+</script>
     
     </body>
 </html>
+
 
 
 
