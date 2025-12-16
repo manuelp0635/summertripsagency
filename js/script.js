@@ -1,50 +1,71 @@
-  // Pequeñas interacciones: nav (para pantallas pequeñas), galería modal y envío de formulario simulado
-      document.getElementById("year").textContent = new Date().getFullYear();
+// Año automático
+document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Gallery modal
-      document.querySelectorAll(".gallery .g").forEach((g) => {
-        g.addEventListener("click", () => {
-          const src =
-            g.getAttribute("data-img") ||
-            getComputedStyle(g).backgroundImage.slice(5, -2);
-          document.getElementById("mimg").src = src;
-          document.getElementById("modal").classList.add("show");
-        });
-      });
-      document.getElementById("modal").addEventListener("click", () => {
-        document.getElementById("modal").classList.remove("show");
-        document.getElementById("mimg").src = "";
-      });
+/* ======================================================
+   GALERÍA MODAL
+====================================================== */
+document.querySelectorAll(".gallery .g").forEach((g) => {
+  g.addEventListener("click", () => {
+    let src = g.getAttribute("data-img");
 
-      function submitForm(e) {
-        e.preventDefault();
-        const name = document.getElementById("name").value || "Cliente";
-        // Simulación de envío: reemplazar por llamada a API o servicio de email
-        alert(
-          "Gracias, " +
-            name +
-            ". Hemos recibido tu solicitud. Te contactamos pronto."
-        );
-        e.target.reset && e.target.reset();
+    // Fallback si data-img NO existe
+    if (!src) {
+      const bg = getComputedStyle(g).backgroundImage;
+      if (bg && bg !== "none") {
+        src = bg.slice(5, -2); // obtiene URL del background
       }
+    }
 
-      // Mobile menu: mostrar simple indicación si necesario
-      const mq = window.matchMedia("(max-width:1000px)");
-      function adaptMenu() {
-        const nav = document.querySelector("nav");
-        const pill = document.getElementById("menuBtn");
-        if (mq.matches) {
-          nav.style.display = "none";
-          pill.style.display = "inline-block";
-          pill.onclick = () => {
-            alert(
-              "En versión demo copia los enlaces. Para menú móvil impleméntalo con tu framework preferido."
-            );
-          };
-        } else {
-          nav.style.display = "flex";
-          pill.style.display = "none";
-        }
-      }
-      adaptMenu();
-      window.addEventListener("resize", adaptMenu);
+    if (!src) return; // evita error si no hay imagen disponible
+
+    document.getElementById("mimg").src = src;
+    document.getElementById("modal").classList.add("show");
+  });
+});
+
+// Cerrar modal clickeando afuera
+document.getElementById("modal").addEventListener("click", () => {
+  document.getElementById("modal").classList.remove("show");
+  document.getElementById("mimg").src = "";
+});
+
+/* ======================================================
+   FORMULARIO (simulación)
+====================================================== */
+function submitForm(e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value || "Cliente";
+
+  alert("Gracias, " + name + ". Hemos recibido tu solicitud. Te contactamos pronto.");
+
+  e.target.reset && e.target.reset();
+}
+
+/* ======================================================
+   MENÚ MÓVIL (MEJORADO)
+====================================================== */
+const mq = window.matchMedia("(max-width:1000px)");
+const nav = document.querySelector("nav");
+const pill = document.getElementById("menuBtn");
+
+function adaptMenu() {
+  if (mq.matches) {
+    nav.style.display = "none"; // oculto por defecto
+    pill.style.display = "inline-block";
+  } else {
+    nav.style.display = "flex"; // desktop
+    pill.style.display = "none";
+  }
+}
+
+adaptMenu();
+window.addEventListener("resize", adaptMenu);
+
+// Toggle real del menú móvil
+pill.addEventListener("click", () => {
+  if (nav.style.display === "none" || nav.style.display === "") {
+    nav.style.display = "flex"; // abrir
+  } else {
+    nav.style.display = "none"; // cerrar
+  }
+});
