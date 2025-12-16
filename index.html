@@ -77,15 +77,63 @@
             </div>
           </div>
         </div>
-        <nav>
+
+        <!-- NAV normal en PC / oculto en móviles -->
+        <nav id="mainNav">
           <a href="#destinos">Destinos</a>
           <a href="#paquetes">Paquetes</a>
           <a href="#galeria">Galería</a>
           <a href="#contacto" class="cta">Reservar ahora</a>
         </nav>
-        <div class="pill" id="menuBtn" style="display: none">Menu</div>
-      </header>
 
+    <!-- BOTÓN HAMBURGUESA -->
+  <button
+    class="menu-toggle"
+    id="toggleMenu"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- OVERLAY + MENÚ -->
+  <div class="menu-overlay" id="menu">
+    <nav class="menu-box" role="navigation">
+
+      <!-- ATENCIÓN -->
+      <div class="menu-head">
+        <h3>Vive Cartagena</h3>
+        <p>Experiencias únicas frente al mar</p>
+      </div>
+
+      <!-- INTERÉS + DESEO -->
+      <ul class="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#islas">Tours a las Islas</a></li>
+        <li><a href="#pasadias">Pasadías</a></li>
+        <li><a href="#botes">Botes y Yates</a></li>
+        <li><a href="#premium">Experiencias Premium</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <!-- ACCIÓN -->
+      <div class="menu-cta">
+        <a href="#contacto" class="btn-primary">Reservar ahora</a>
+        <a
+          href="https://wa.me/57XXXXXXXXXX"
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+      </div>
+
+    </nav>
+</header>
       <section class="hero">
         <div class="hero-card">
           <h1>
@@ -1425,29 +1473,10 @@
     <script src="./js/formulario.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/asesor.js"></script>
-
-    <!-- JS menu lateral -->
-    <script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-  });
-</script>
-
-<script>
-  const links = document.querySelectorAll(".mobile-menu a");
-
-  links.forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("active");
-    });
-  });
-</script>
     
     </body>
 </html>
+
 
 
 
