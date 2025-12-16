@@ -264,6 +264,14 @@ p.lead{
   gap: 14px;
 }
 
+/* =====================
+   CTA
+===================== */
+.menu-cta {
+  display: grid;
+  gap: 14px;
+}
+
 .btn-primary {
   background: var(--accent);
   color: white;
@@ -271,6 +279,13 @@ p.lead{
   padding: 14px;
   border-radius: 14px;
   text-decoration: none;
+  font-weight: 700;
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  color: #000;
+  border-radius: 12px;
   font-weight: 700;
 }
 
@@ -282,6 +297,9 @@ p.lead{
   border-radius: 14px;
   text-decoration: none;
   font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 /* =====================
    DESKTOP
@@ -1384,6 +1402,7 @@ footer{
     bottom: 86px;
   }
 }
+
 
 
 
