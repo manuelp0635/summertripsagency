@@ -144,30 +144,6 @@ p.lead{
 }
 
 /* =====================
-   RESET
-===================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* =====================
-   HEADER
-===================== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-/* =====================
    BOTÓN HAMBURGUESA
 ===================== */
 .menu-toggle {
@@ -307,7 +283,6 @@ p.lead{
   text-decoration: none;
   font-weight: 600;
 }
-
 /* =====================
    DESKTOP
 ===================== */
@@ -1409,6 +1384,7 @@ footer{
     bottom: 86px;
   }
 }
+
 
 
 
