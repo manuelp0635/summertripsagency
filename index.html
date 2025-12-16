@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-  <!-- CONFIGURACIÓN BÁSICA -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- CONFIGURACIÓN BÁSICA -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- TÍTULO SEO (60 caracteres aprox.) -->
-  <title>Summer Trips Agency | Paquetes Turísticos en Cartagena y Colombia</title>
+    <!-- TÍTULO SEO (60 caracteres aprox.) -->
+    <title>
+      Summer Trips Agency | Paquetes Turísticos en Cartagena y Colombia
+    </title>
 
-  <!-- DESCRIPCIÓN SEO (155–160 caracteres) -->
-  <meta
-    name="description"
-    content="Summer Trips Agency: paquetes turísticos a Cartagena, Santa Marta, San Andrés y Bogotá. Experiencias únicas, planes todo incluido y atención personalizada."
-  />
+    <!-- DESCRIPCIÓN SEO (155–160 caracteres) -->
+    <meta
+      name="description"
+      content="Summer Trips Agency: paquetes turísticos a Cartagena, Santa Marta, San Andrés y Bogotá. Experiencias únicas, planes todo incluido y atención personalizada."
+    />
 
-  <!-- PALABRAS CLAVE (no son ranking, pero ayudan a contexto) -->
-  <meta
-    name="keywords"
-    content="agencia de turismo, paquetes turísticos Cartagena, viajes a Santa Marta, San Andrés, planes turísticos Colombia, Summer Trips Agency"
-  />
+    <!-- PALABRAS CLAVE (no son ranking, pero ayudan a contexto) -->
+    <meta
+      name="keywords"
+      content="agencia de turismo, paquetes turísticos Cartagena, viajes a Santa Marta, San Andrés, planes turísticos Colombia, Summer Trips Agency"
+    />
 
-  <!-- AUTOR -->
-  <meta name="author" content="Summer Trips Agency" />
+    <!-- AUTOR -->
+    <meta name="author" content="Summer Trips Agency" />
 
-  <!-- INDEXACIÓN -->
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
+    <!-- INDEXACIÓN -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
 
-  <!-- CANONICAL (MUY IMPORTANTE) -->
-  <link rel="canonical" href="https://www.summertripsagency.com/" />
+    <!-- CANONICAL (MUY IMPORTANTE) -->
+    <link rel="canonical" href="https://www.summertripsagency.com/" />
 
-  <!-- FAVICON -->
-  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon" />
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon" />
 
-  <!-- FUENTES -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
-    rel="stylesheet"
-  />
+    <!-- FUENTES -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- OPEN GRAPH (FACEBOOK, WHATSAPP, ETC.) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Summer Trips Agency | Paquetes Turísticos en Colombia" />
-  <meta
-    property="og:description"
-    content="Viaja con Summer Trips Agency y disfruta los mejores paquetes turísticos en Cartagena, Santa Marta y San Andrés."
-  />
-  <meta property="og:image" content="https://www.summertripsagency.com/images/og-image.jpg" />
-  <meta property="og:url" content="https://www.summertripsagency.com/" />
-  <meta property="og:site_name" content="Summer Trips Agency" />
+    <!-- OPEN GRAPH (FACEBOOK, WHATSAPP, ETC.) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Summer Trips Agency | Paquetes Turísticos en Colombia"
+    />
+    <meta
+      property="og:description"
+      content="Viaja con Summer Trips Agency y disfruta los mejores paquetes turísticos en Cartagena, Santa Marta y San Andrés."
+    />
+    <meta
+      property="og:image"
+      content="https://www.summertripsagency.com/images/og-image.jpg"
+    />
+    <meta property="og:url" content="https://www.summertripsagency.com/" />
+    <meta property="og:site_name" content="Summer Trips Agency" />
 
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Summer Trips Agency | Viajes y Paquetes Turísticos" />
-  <meta
-    name="twitter:description"
-    content="Explora Colombia con nuestros paquetes turísticos exclusivos y atención personalizada."
-  />
-  <meta name="twitter:image" content="https://www.summertripsagency.com/images/og-image.jpg" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Summer Trips Agency | Viajes y Paquetes Turísticos"
+    />
+    <meta
+      name="twitter:description"
+      content="Explora Colombia con nuestros paquetes turísticos exclusivos y atención personalizada."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.summertripsagency.com/images/og-image.jpg"
+    />
 
-  <!-- ESTILOS -->
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
   <body>
     <div class="wrap">
       <header>
@@ -134,6 +148,10 @@
 
     </nav>
 </header>
+
+        <div class="menu-overlay" id="menuOverlay"></div>
+      </header>
+
       <section class="hero">
         <div class="hero-card">
           <h1>
@@ -247,25 +265,31 @@
         </aside>
       </section>
 
-       <section id="destinos">
-  <h2 style="margin: 20px 0 6px">Destinos turísticos</h2>
+      <section id="destinos">
+        <h2 style="margin: 20px 0 6px">Destinos turísticos</h2>
 
-  <div class="destinos-scroll" aria-label="Destinos turísticos disponibles">
-    
-    <!-- CARD -->
-    <article class="card">
-      <div class="thumb" style="background-image: url('./images/Bora_bora.png')"></div>
-      <h3>5 islas en bote deportivo</h3>
-      <p class="muted">
-        Recorre 5 islas paradisíacas en bote deportivo y vive una experiencia inolvidable.
-      </p>
-      <div class="card-footer">
-        <div class="price">$330.000 COP</div>
-        <a href="#contacto" class="btn-reservar">Reservar</a>
-      </div>
-    </article>
+        <div
+          class="destinos-scroll"
+          aria-label="Destinos turísticos disponibles"
+        >
+          <!-- CARD -->
+          <article class="card">
+            <div
+              class="thumb"
+              style="background-image: url('./images/Bora_bora.png')"
+            ></div>
+            <h3>5 islas en bote deportivo</h3>
+            <p class="muted">
+              Recorre 5 islas paradisíacas en bote deportivo y vive una
+              experiencia inolvidable.
+            </p>
+            <div class="card-footer">
+              <div class="price">$330.000 COP</div>
+              <a href="#contacto" class="btn-reservar">Reservar</a>
+            </div>
+          </article>
 
-      <!-- Card 2 -->
+          <!-- Card 2 -->
           <article class="card">
             <div
               class="thumb"
@@ -1160,8 +1184,8 @@
               >
             </div>
           </article>
-  </div>
-</section>
+        </div>
+      </section>
 
       <section id="paquetes">
         <h2 style="margin: 20px 0 6px">Paquetes populares</h2>
@@ -1290,28 +1314,28 @@
         </div>
       </section>
 
-       <!-- TESTIMONIOS -->
-       <section class="testimonios">
-  <h2>Lo que dicen nuestros clientes</h2>
+      <!-- TESTIMONIOS -->
+      <section class="testimonios">
+        <h2>Lo que dicen nuestros clientes</h2>
 
-  <div class="testimonios-container">
+        <div class="testimonios-container">
+          <div class="testimonio-card">
+            <div class="testimonio-foto">
+              <img src="./images/testimonios/1.jpg" alt="Cliente 1" />
+            </div>
+            <p class="testimonio-texto">
+              Un compañero comenta que una amiga, Diana Espinoza, visitó
+              Cartagena con su mamá y su hija. Él los remitió a tus tours y
+              quedaron muy contentas y agradecidas. Resalta lo valioso que es
+              contar con alguien confiable y que hace las cosas bien. Además,
+              enviará tu contacto a una amiga de México que viajará con su
+              familia a fin de año, esperando que la atiendas con la misma
+              honradez de siempre.
+            </p>
+            <p class="testimonio-nombre">María López</p>
+          </div>
 
-    <div class="testimonio-card">
-      <div class="testimonio-foto">
-        <img src="./images/testimonios/1.jpg" alt="Cliente 1">
-      </div>
-      <p class="testimonio-texto">
-        Un compañero comenta que una amiga, Diana Espinoza, visitó Cartagena
-            con su mamá y su hija. Él los remitió a tus tours y quedaron muy
-            contentas y agradecidas. Resalta lo valioso que es contar con
-            alguien confiable y que hace las cosas bien. Además, enviará tu
-            contacto a una amiga de México que viajará con su familia a fin de
-            año, esperando que la atiendas con la misma honradez de siempre.
-      </p>
-      <p class="testimonio-nombre">María López</p>
-    </div>
-
-    <!--<div class="testimonio-card">
+          <!--<div class="testimonio-card">
       <div class="testimonio-foto">
         <img src="./images/testimonios/3.jpg" alt="Cliente 2">
       </div>
@@ -1330,10 +1354,10 @@
       </p>
       <p class="testimonio-nombre">Camila Torres</p>
     </div>-->
-  </div>
-</section>
+        </div>
+      </section>
 
-     <section id="contacto" class="contact">
+      <section id="contacto" class="contact">
         <div>
           <h2>Contáctanos</h2>
           <p class="muted">
@@ -1352,37 +1376,96 @@
           </div>
         </div>
 
-         <form onsubmit="submitForm(event)">
-  <label for="name">Nombre completo</label>
-  <input id="name" required placeholder="Juan Pérez" />
+        <form onsubmit="submitForm(event)">
+          <label for="name">Nombre completo</label>
+          <input id="name" required placeholder="Juan Pérez" />
 
-  <label for="email">Email</label>
-  <input
-    id="email"
-    type="email"
-    required
-    placeholder="juan@correo.com"
-  />
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="juan@correo.com"
+          />
 
-  <label for="dest">Destino de interés</label>
-  <select id="dest">
-    <option>Cartagena</option>
-    <option>Santa Marta</option>
-    <option>San Andrés</option>
-    <option>Bogotá</option>
-  </select>
+          <label for="dest">Destino de interés</label>
+          <select id="dest">
+            <option>Cartagena</option>
+            <option>Santa Marta</option>
+            <option>San Andrés</option>
+            <option>Bogotá</option>
+          </select>
 
-  <label for="msg">Mensaje / Preferencias</label>
-  <textarea
-    id="msg"
-    rows="4"
-    placeholder="Fechas, presupuesto, intereses..."
-  ></textarea>
+          <label for="msg">Mensaje / Preferencias</label>
+          <textarea
+            id="msg"
+            rows="4"
+            placeholder="Fechas, presupuesto, intereses..."
+          ></textarea>
 
-  <button type="submit">Enviar solicitud</button>
-</form>
+          <button type="submit">Enviar solicitud</button>
+        </form>
       </section>
 
+      <!-- BOTÓN FLOTANTE -->
+      <div class="chat-float-btn" id="openChat" aria-label="Abrir chat">🌴</div>
+
+      <!-- MODAL CHAT -->
+      <div class="chatbot" id="chatbot" style="display: none">
+        <!-- HEADER -->
+        <div class="chat-header">
+          🌴 Tabosummer – Asesor Virtual
+          <span id="closeChat" style="cursor: pointer">✕</span>
+        </div>
+
+        <!-- CUERPO DEL CHAT -->
+        <div class="chat-body" id="chatBody">
+          <div class="bot">
+            👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual de
+            viajes en Cartagena. <br />🌴 Estoy aquí para ayudarte a planear una
+            experiencia inolvidable. <br /><br />¿Qué te gustaría hacer hoy?
+          </div>
+
+          <div class="bot">
+            1️⃣ Ver destinos y planes turísticos<br />
+            2️⃣ Cotizar un pasadía o tour<br />
+            3️⃣ Información sobre horarios y salidas<br />
+            4️⃣ Recomendaciones en Cartagena<br />
+            5️⃣ Hablar con un asesor humano
+          </div>
+        </div>
+
+        <!-- OPCIONES -->
+        <div class="chat-options" id="options">
+          <button>1️⃣ Ver destinos y planes</button>
+          <button>2️⃣ Cotizar un pasadía</button>
+          <button>3️⃣ Horarios y salidas</button>
+          <button>4️⃣ Recomendaciones locales</button>
+          <button>5️⃣ Hablar con un asesor</button>
+        </div>
+
+        <!-- INPUT 
+  <div class="chat-input">
+    <input type="text" placeholder="Escribe aquí..." />
+    <button aria-label="Enviar mensaje">➤</button>
+  </div> -->
+
+        <!-- ICONOS SOCIALES -->
+        <div class="chat-socials">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+            alt="WhatsApp"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+            alt="Facebook"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+            alt="Instagram"
+          />
+        </div>
+      </div>
       <footer>
         <div
           style="
@@ -1404,92 +1487,9 @@
       <img class="mimg" id="mimg" src="" alt="" />
     </div>
 
-      <!-- BOTÓN FLOTANTE -->
-<div class="chat-float-btn" id="openChat" aria-label="Abrir chat">
-  🌴
-</div>
-
-<!-- MODAL CHAT -->
-<div class="chatbot" id="chatbot" style="display: none;">
-  
-  <!-- HEADER -->
-  <div class="chat-header">
-    🌴 Tabosummer – Asesor Virtual
-    <span id="closeChat" style="cursor:pointer;">✕</span>
-  </div>
-
-   <!-- CUERPO DEL CHAT -->
-<div class="chat-body" id="chatBody">
-  <div class="bot">
-    👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual de viajes en Cartagena.
-    <br />🌴 Estoy aquí para ayudarte a planear una experiencia inolvidable.
-    <br /><br />¿Qué te gustaría hacer hoy?
-  </div>
-
-  <div class="bot">
-    1️⃣ Ver destinos y planes turísticos<br />
-    2️⃣ Cotizar un pasadía o tour<br />
-    3️⃣ Información sobre horarios y salidas<br />
-    4️⃣ Recomendaciones en Cartagena<br />
-    5️⃣ Hablar con un asesor humano
-  </div>
-</div>
-
-<!-- OPCIONES -->
-<div class="chat-options" id="options">
-  <button>1️⃣ Ver destinos y planes</button>
-  <button>2️⃣ Cotizar un pasadía</button>
-  <button>3️⃣ Horarios y salidas</button>
-  <button>4️⃣ Recomendaciones locales</button>
-  <button>5️⃣ Hablar con un asesor</button>
-</div>
-
-
-        <!-- INPUT 
-  <div class="chat-input">
-    <input type="text" placeholder="Escribe aquí..." />
-    <button aria-label="Enviar mensaje">➤</button>
-  </div> -->
-
-        <!-- ICONOS SOCIALES -->
-  <div class="chat-socials">
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-      alt="WhatsApp"
-    />
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-      alt="Facebook"
-    />
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
-      alt="Instagram"
-    />
-  </div>
-
-</div>
-
     <script src="./js/script.js"></script>
     <script src="./js/formulario.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/asesor.js"></script>
-    
-    </body>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
