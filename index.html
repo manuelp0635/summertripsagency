@@ -1406,65 +1406,65 @@
         </form>
       </section>
 
-      <!-- BOTÓN FLOTANTE -->
-      <div class="chat-float-btn" id="openChat" aria-label="Abrir chat">🌴</div>
+       <!-- ================================
+ ASESOR VIRTUAL TABOPLUS
+================================ -->
+    <div class="asesor-container">
+      <!-- Botón del asesor virtual -->
+      <button id="chat-toggle">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+          alt="Asesor Virtual Taboplus"
+        />
+      </button>
 
-      <!-- MODAL CHAT -->
-      <div class="chatbot" id="chatbot" style="display: none">
-        <!-- HEADER -->
-        <div class="chat-header">
-          🌴 Tabosummer – Asesor Virtual
-          <span id="closeChat" style="cursor: pointer">✕</span>
+      <!-- Ventana de chat -->
+      <div id="chatbox">
+        <div id="chat-header">
+          🤖 Taboplus - Asesor Virtual
+          <span
+            id="chat-close"
+            style="cursor: pointer; float: right; font-weight: bold"
+          >
+            X
+          </span>
         </div>
 
-        <!-- CUERPO DEL CHAT -->
-        <div class="chat-body" id="chatBody">
-          <div class="bot">
-            👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual de
-            viajes en Cartagena. <br />🌴 Estoy aquí para ayudarte a planear una
-            experiencia inolvidable. <br /><br />¿Qué te gustaría hacer hoy?
-          </div>
+        <div id="chat-messages"></div>
 
-          <div class="bot">
-            1️⃣ Ver destinos y planes turísticos<br />
-            2️⃣ Cotizar un pasadía o tour<br />
-            3️⃣ Información sobre horarios y salidas<br />
-            4️⃣ Recomendaciones en Cartagena<br />
-            5️⃣ Hablar con un asesor humano
-          </div>
+        <div id="chat-input">
+          <input id="input" type="text" placeholder="Escribe aquí..." />
+          <button onclick="enviar()">➤</button>
         </div>
 
-        <!-- OPCIONES -->
-        <div class="chat-options" id="options">
-          <button>1️⃣ Ver destinos y planes</button>
-          <button>2️⃣ Cotizar un pasadía</button>
-          <button>3️⃣ Horarios y salidas</button>
-          <button>4️⃣ Recomendaciones locales</button>
-          <button>5️⃣ Hablar con un asesor</button>
-        </div>
-
-        <!-- INPUT 
-  <div class="chat-input">
-    <input type="text" placeholder="Escribe aquí..." />
-    <button aria-label="Enviar mensaje">➤</button>
-  </div> -->
-
-        <!-- ICONOS SOCIALES -->
-        <div class="chat-socials">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-            alt="WhatsApp"
-          />
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-            alt="Facebook"
-          />
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
-            alt="Instagram"
-          />
+        <!-- Redes sociales -->
+        <div id="chat-social">
+          <a
+            href="https://wa.me/573113212221?text=Hola%2C%20quisiera%20más%20información"
+            target="_blank"
+            aria-label="WhatsApp"
+          >
+            <img src="assets/images/whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a
+            href="https://www.facebook.com/PlusLaboratorioClinico"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <img src="assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a
+            href="https://www.instagram.com/laboratorio_clinico_plus"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <img src="assets/images/instagram.png" alt="Instagram" />
+          </a>
         </div>
       </div>
+    </div>
+
+    <!-- Asesor virtual final -->
       <footer>
         <div
           style="
@@ -1514,4 +1514,5 @@ links.forEach(link => {
     </script>
   </body>
 </html>
+
 
