@@ -46,16 +46,38 @@ function createOption(text, action) {
 // Inicio
 function startChat() {
   chatBody.innerHTML = "";
-  botMessage("👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual.");
+  botMessage("  👋 ¡Hola! Soy <strong>Tabosummer</strong>, tu asesor virtual de
+            viajes en Cartagena. <br />🌴 Estoy aquí para ayudarte a planear una
+            experiencia inolvidable. <br /><br />¿Qué te gustaría hacer hoy?");
   botMessage("¿Qué deseas hacer?");
   clearOptions();
 
-  createOption("1️⃣ Consultar horarios", horarios);
-  createOption("2️⃣ Agendar cita", cita);
+  createOption("1️⃣ Ver destinos y planes turísticos", destinos);
+  createOption("2️⃣ Cotizar un pasadía o tour", );
   createOption("3️⃣ Requisitos de exámenes", requisitos);
   createOption("4️⃣ Resultados", resultados);
   createOption("5️⃣ Hablar con un agente", agente);
 }
+
+          <div class="bot">
+            1️⃣ Ver destinos y planes turísticos<br />
+            2️⃣ Cotizar un pasadía o tour<br />
+            3️⃣ Información sobre horarios y salidas<br />
+            4️⃣ Recomendaciones en Cartagena<br />
+            5️⃣ Hablar con un asesor humano
+          </div>
+        </div>
+
+        <!-- OPCIONES -->
+        <div class="chat-options" id="options">
+          <button>1️⃣ Ver destinos y planes</button>
+          <button>2️⃣ Cotizar un pasadía</button>
+          <button>3️⃣ Horarios y salidas</button>
+          <button>4️⃣ Recomendaciones locales</button>
+          <button>5️⃣ Hablar con un asesor</button>
+        </div>
+
+       
 
 // Flujos
 function horarios() {
@@ -88,3 +110,4 @@ function agente() {
 
 // Inicializar
 startChat();
+
