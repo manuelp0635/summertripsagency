@@ -1230,141 +1230,6 @@ footer{
 
 .modal.show{display:flex}
 
-/* ==============================
-   MODAL CHAT – ESTILO TABOPLUS
-   ============================== */
-
-.chatbot {
-  position: fixed;
-  bottom: 90px;
-  right: 24px;
-  width: 360px;
-  max-width: calc(100vw - 48px);
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  z-index: 9999;
-  animation: modalUp 0.3s ease;
-}
-
-/* Animación */
-@keyframes modalUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Header */
-.chat-header {
-  background: #0fb58a;
-  color: #fff;
-  padding: 12px 14px;
-  font-weight: 600;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Botón cerrar */
-.chat-header::after {
-  /* content: "✕"; */
-  cursor: pointer;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* Cuerpo */
-.chat-body {
-  padding: 14px;
-  background: #f4fdf9;
-  max-height: 260px;
-  overflow-y: auto;
-}
-
-/* Burbuja bot */
-.bot {
-  background: #e9fff3;
-  color: #1b1b1b;
-  padding: 10px 12px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-  font-size: 13.5px;
-  line-height: 1.4;
-}
-
-/* Opciones */
-.chat-options {
-  padding: 10px 14px;
-  display: grid;
-  gap: 8px;
-  background: #f4fdf9;
-}
-
-.chat-options button {
-  background: #e9fff3;
-  border: none;
-  padding: 8px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 13px;
-  text-align: left;
-  transition: background 0.2s ease;
-}
-
-.chat-options button:hover {
-  background: #d6f7e8;
-}
-
-/* Footer input */
-.chat-input {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px;
-  border-top: 1px solid #eee;
-}
-
-.chat-input input {
-  flex: 1;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid #ddd;
-  outline: none;
-  font-size: 13px;
-}
-
-.chat-input button {
-  background: #0fb58a;
-  border: none;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Iconos sociales */
-.chat-socials {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  padding: 10px;
-}
-
-.chat-socials img {
-  width: 24px;
-  cursor: pointer;
-}
-
-
 /* ============================
    BOTON ASESOR Y REDES SOCIALES
 =============================== */
@@ -1482,6 +1347,7 @@ footer{
     display: flex;
   }
 }
+
 
 
 
