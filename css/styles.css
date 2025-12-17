@@ -264,14 +264,6 @@ p.lead{
   gap: 14px;
 }
 
-/* =====================
-   CTA
-===================== */
-.menu-cta {
-  display: grid;
-  gap: 14px;
-}
-
 .btn-primary {
   background: var(--accent);
   color: white;
@@ -301,6 +293,7 @@ p.lead{
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
 /* =====================
    DESKTOP
 ===================== */
@@ -1402,6 +1395,7 @@ footer{
     bottom: 86px;
   }
 }
+
 
 
 
