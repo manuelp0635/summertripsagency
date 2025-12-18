@@ -1,15 +1,31 @@
+   const tourData = [
+     {
+    name: "Tour 5 Islas",
+    desc: "Recorrido en lancha deportiva por islas paradisíacas, aguas cristalinas y ambiente caribeño.",
+    includes: "Lancha deportiva, guía, almuerzo",
+    duration: "8 horas",
+    price: 350000
+  },
+  {
+    name: "Playa Blanca",
+    desc: "Día de descanso en playa de arena blanca y mar turquesa.",
+    includes: "Transporte, almuerzo",
+    duration: "6 horas",
+    price: 180000
+  },
+  {
+    name: "City Tour Cartagena",
+    desc: "Recorrido cultural por la ciudad amurallada y sitios históricos.",
+    includes: "Guía profesional, transporte",
+    duration: "4 horas",
+    price: 120000
+  }
+];
+
 /* =========================
    CONSTANTES GLOBALES
    ========================= */
 const WHATSAPP_NUMBER = "+573113212221";
-
-/* Possible element IDs used in different HTML variants:
-   - exam-list (used by earlier app code)
-   - examenes (used by grid/list code)
-   Chat elements:
-   - chatbox, chat-toggle, chat-close, input, chat-messages, send
-   We'll attempt to bind to whichever exist.
-*/
 
 /* =========================
    HELPERS / UTILIDADES
@@ -78,7 +94,7 @@ const state = {
    ========================= */
 document.addEventListener("DOMContentLoaded", () => {
   // initial render: use examList (if exists) or examenesContainer
-  renderExams(examData);
+  renderExams(tourData);
 
   // category counters if categoryList exists
   if (el.categoryList) updateCategoryCounters(examData);
