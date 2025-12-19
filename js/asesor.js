@@ -1,31 +1,40 @@
-   const tourData = [
-     {
+const tourData = [
+  {
+    id: 1,
     name: "Tour 5 Islas",
     desc: "Recorrido en lancha deportiva por islas paradisíacas, aguas cristalinas y ambiente caribeño.",
+    prep: "Traje de baño, bloqueador solar",
+    time: "8 horas",
     includes: "Lancha deportiva, guía, almuerzo",
-    duration: "8 horas",
-    price: 350000
+    price: 350000,
+    img: "https://via.placeholder.com/300x180?text=Tour+5+Islas"
   },
   {
+    id: 2,
     name: "Playa Blanca",
     desc: "Día de descanso en playa de arena blanca y mar turquesa.",
+    prep: "Ropa cómoda y bloqueador",
+    time: "6 horas",
     includes: "Transporte, almuerzo",
-    duration: "6 horas",
-    price: 180000
+    price: 180000,
+    img: "https://via.placeholder.com/300x180?text=Playa+Blanca"
   },
   {
+    id: 3,
     name: "City Tour Cartagena",
     desc: "Recorrido cultural por la ciudad amurallada y sitios históricos.",
+    prep: "Calzado cómodo",
+    time: "4 horas",
     includes: "Guía profesional, transporte",
-    duration: "4 horas",
-    price: 120000
+    price: 120000,
+    img: "https://via.placeholder.com/300x180?text=City+Tour"
   }
 ];
 
 /* =========================
    CONSTANTES GLOBALES
    ========================= */
-const WHATSAPP_NUMBER = "+573113212221";
+const WHATSAPP_NUMBER = "+57 312 8462567";
 
 /* =========================
    HELPERS / UTILIDADES
@@ -97,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderExams(tourData);
 
   // category counters if categoryList exists
-  if (el.categoryList) updateCategoryCounters(examData);
+  if (el.categoryList) updateCategoryCounters(tourData);
 
   // setup interactions
   setupCategoryClicks();
@@ -117,7 +126,7 @@ function renderExams(data) {
   const container = el.examenesContainer;
   if (!container) return;
 
-  // ensure correct class exists for layout
+  // ensure correct class exists for layout (NO SE TOCA)
   if (state.currentView === "grid") {
     container.classList.remove("lista");
     container.classList.add("cuadricula");
@@ -130,21 +139,21 @@ function renderExams(data) {
 
   if (!data || data.length === 0) {
     const p = document.createElement("p");
-    p.textContent = "No se encontraron exámenes.";
+    p.textContent = "No se encontraron tours disponibles.";
     container.appendChild(p);
     return;
   }
 
-  // create cards (structure works for both grid and list styles)
+  // create cards (MISMA estructura para grid y lista)
   data.forEach(exam => {
     const card = document.createElement("div");
-    card.className = "examen-card exam-item";
+    card.className = "examen-card exam-item"; // CLASES INTACTAS
     card.dataset.id = exam.id;
 
     // fallback image
-    const imgSrc = exam.img || "https://via.placeholder.com/300x180?text=Examen";
+    const imgSrc = exam.img || "https://via.placeholder.com/300x180?text=Tour";
 
-    // inner HTML for card
+    // inner HTML for card (SOLO TEXTO ACTUALIZADO)
     card.innerHTML = `
       <div class="card-media">
         <img src="${imgSrc}" alt="${escapeHtml(exam.name)}" class="card-img" />
@@ -153,34 +162,42 @@ function renderExams(data) {
         <h3 class="card-title">${escapeHtml(exam.name)}</h3>
         <p class="card-desc">${escapeHtml(truncate(exam.desc, 160))}</p>
         <div class="card-meta">
-          <small><b>Preparación:</b> ${escapeHtml(exam.prep || "No requiere")}</small><br/>
-          <small><b>Entrega:</b> ${escapeHtml(exam.time)}</small> · <small><b>Precio:</b> ${formatCurrency(exam.price)}</small>
+          <small><b>Qué llevar:</b> ${escapeHtml(exam.prep || "Ropa cómoda y bloqueador solar")}</small><br/>
+          <small><b>Duración:</b> ${escapeHtml(exam.time)}</small> · 
+          <small><b>Precio:</b> ${formatCurrency(exam.price)}</small>
         </div>
         <div class="card-actions">
           <button class="btn btn-detail" data-id="${exam.id}">Detalle</button>
           <button class="btn btn-compare" data-id="${exam.id}">Comparar</button>
-          <button class="btn btn-ws" data-id="${exam.id}">Solicitar</button>
+          <button class="btn btn-ws" data-id="${exam.id}">Reservar</button>
         </div>
       </div>
     `;
 
-    // append to container
     container.appendChild(card);
   });
 
-  // attach event listeners on generated buttons
-  container.querySelectorAll(".btn-detail").forEach(b => b.addEventListener("click", e => {
-    const id = Number(e.currentTarget.dataset.id);
-    openDetailModal(id);
-  }));
-  container.querySelectorAll(".btn-compare").forEach(b => b.addEventListener("click", e => {
-    const id = Number(e.currentTarget.dataset.id);
-    toggleCompare(id);
-  }));
-  container.querySelectorAll(".btn-ws").forEach(b => b.addEventListener("click", e => {
-    const id = Number(e.currentTarget.dataset.id);
-    openWhatsAppForExam(id);
-  }));
+  // attach event listeners (NO SE TOCAN)
+  container.querySelectorAll(".btn-detail").forEach(b =>
+    b.addEventListener("click", e => {
+      const id = Number(e.currentTarget.dataset.id);
+      openDetailModal(id);
+    })
+  );
+
+  container.querySelectorAll(".btn-compare").forEach(b =>
+    b.addEventListener("click", e => {
+      const id = Number(e.currentTarget.dataset.id);
+      toggleCompare(id);
+    })
+  );
+
+  container.querySelectorAll(".btn-ws").forEach(b =>
+    b.addEventListener("click", e => {
+      const id = Number(e.currentTarget.dataset.id);
+      openWhatsAppForExam(id);
+    })
+  );
 }
 
 /* =========================
@@ -209,19 +226,25 @@ function updateCategoryCounters(data) {
    ========================= */
 function setupCategoryClicks() {
   if (!el.categoryList) return;
+
   const lis = el.categoryList.querySelectorAll("li");
+
   lis.forEach(li => {
     li.addEventListener("click", () => {
-      // toggle active
+      // activar categoría seleccionada
       lis.forEach(x => x.classList.remove("active"));
       li.classList.add("active");
 
       const cat = li.dataset.category || "all";
+
+      // mostrar todos los tours
       if (cat === "all") {
-        renderExams(examData);
-        updateCategoryCounters(examData);
-      } else {
-        const filtered = examData.filter(e => e.category === cat);
+        renderExams(tourData);
+        updateCategoryCounters(tourData);
+      } 
+      // filtrar por tipo de tour (islas, playas, city tour, etc.)
+      else {
+        const filtered = tourData.filter(tour => tour.category === cat);
         renderExams(filtered);
         updateCategoryCounters(filtered);
       }
@@ -242,7 +265,7 @@ function setupSearch() {
     const q = e.target.value.toLowerCase().trim();
     clearTimeout(timer);
     timer = setTimeout(() => {
-      const filtered = examData.filter(ex =>
+      const filtered = tourData.filter(ex =>
         ex.name.toLowerCase().includes(q) ||
         ex.desc.toLowerCase().includes(q) ||
         (ex.category || "").toLowerCase().includes(q)
@@ -310,31 +333,43 @@ function setupDetailModalLogic() {
 
 function openDetailModal(id) {
   const modal = el.detailModal;
+
   if (!modal) {
     // fallback: show alert
-    const ex = examData.find(x => x.id === id);
-    alert(`${ex.name}\n\n${ex.desc}\n\nPreparación: ${ex.prep}\nEntrega: ${ex.time}\nPrecio: ${formatCurrency(ex.price)}`);
+    const tour = tourData.find(x => x.id === id);
+    alert(
+      `${tour.name}\n\n${tour.desc}\n\n` +
+      `Qué llevar: ${tour.prep || "Ropa cómoda y bloqueador solar"}\n` +
+      `Duración: ${tour.time}\n` +
+      `Precio: ${formatCurrency(tour.price)}`
+    );
     return;
   }
 
-  const ex = examData.find(x => x.id === id);
-  if (!ex) return;
+  const tour = tourData.find(x => x.id === id);
+  if (!tour) return;
 
-  if (el.detailImg) el.detailImg.src = ex.img || "https://via.placeholder.com/150";
+  if (el.detailImg) {
+    el.detailImg.src = tour.img || "https://via.placeholder.com/150";
+  }
+
   if (el.detailBody) {
     el.detailBody.innerHTML = `
-      <h2>${escapeHtml(ex.name)}</h2>
-      <p>${escapeHtml(ex.desc)}</p>
-      <p><b>Preparación:</b> ${escapeHtml(ex.prep)}</p>
-      <p><b>Entrega:</b> ${escapeHtml(ex.time)}</p>
-      <p><b>Precio:</b> ${formatCurrency(ex.price)}</p>
+      <h2>${escapeHtml(tour.name)}</h2>
+      <p>${escapeHtml(tour.desc)}</p>
+      <p><b>Qué llevar:</b> ${escapeHtml(tour.prep || "Ropa cómoda y bloqueador solar")}</p>
+      <p><b>Duración:</b> ${escapeHtml(tour.time)}</p>
+      <p><b>Precio:</b> ${formatCurrency(tour.price)}</p>
       <div style="margin-top:10px;">
-        <button class="btn" id="detail-ws-btn">Solicitar por WhatsApp</button>
+        <button class="btn" id="detail-ws-btn">Reservar por WhatsApp</button>
       </div>
     `;
+
     // attach whatsapp handler
     const bw = document.getElementById("detail-ws-btn");
-    if (bw) bw.addEventListener("click", () => openWhatsAppForExam(id));
+    if (bw) {
+      bw.addEventListener("click", () => openWhatsAppForExam(id));
+    }
   }
 
   modal.dataset.currentId = id;
@@ -345,22 +380,25 @@ function openDetailModal(id) {
    WHATSAPP helpers
    ========================= */
 function openWhatsAppForExam(idOrExam) {
-  // accept either id or exam object
-  const ex = typeof idOrExam === "number" ? examData.find(e => e.id === idOrExam) : idOrExam;
-  if (!ex) return;
-  const txt = encodeURIComponent(
-    `Hola, deseo información del examen "${ex.name}".\n\nDescripción: ${ex.desc}\nPreparación: ${ex.prep}\nTiempo: ${ex.time}\nPrecio: ${formatCurrency(ex.price)}`
-  );
-  window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g,'')}?text=${txt}`, "_blank");
-}
+  const tour = typeof idOrExam === "number"
+    ? tourData.find(e => e.id === idOrExam)
+    : idOrExam;
 
-function openWhatsAppForMultiple(exams) {
-  if (!exams || !exams.length) return;
-  let text = "Hola, deseo información sobre los siguientes exámenes:\n";
-  exams.forEach(ex => {
-    text += `\n- ${ex.name} (${formatCurrency(ex.price)}) - ${ex.time}`;
-  });
-  window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g,'')}?text=${encodeURIComponent(text)}`, "_blank");
+  if (!tour) return;
+
+  const txt = encodeURIComponent(
+    `🌴 Hola SummerTripsAgency, estoy interesado en el tour "${tour.name}".\n\n` +
+    `📍 Descripción: ${tour.desc}\n` +
+    `⏰ Duración: ${tour.time}\n` +
+    `🎒 Qué llevar: ${tour.prep || "Ropa cómoda y bloqueador solar"}\n` +
+    `💰 Precio: ${formatCurrency(tour.price)}\n\n` +
+    `¿Podrían confirmarme disponibilidad y forma de pago?`
+  );
+
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${txt}`,
+    "_blank"
+  );
 }
 
 /* =========================
@@ -369,59 +407,96 @@ function openWhatsAppForMultiple(exams) {
 function setupCompareLogic() {
   // compare UI elements may be missing; guard
   if (el.compareBtn) el.compareBtn.addEventListener("click", () => {
-    if (state.compareSet.size < 2) return alert("Selecciona al menos 2 exámenes para comparar.");
+    if (state.compareSet.size < 2) {
+      return alert("Selecciona al menos 2 tours para comparar.");
+    }
     showCompareModal();
   });
+
   if (el.footerRequestBtn) el.footerRequestBtn.addEventListener("click", () => {
-    const exams = [...state.compareSet].map(id => examData.find(e => e.id === id)).filter(Boolean);
-    openWhatsAppForMultiple(exams);
+    const tours = [...state.compareSet]
+      .map(id => tourData.find(e => e.id === id))
+      .filter(Boolean);
+
+    openWhatsAppForMultiple(tours);
   });
+
   // update footer display initially
   updateCompareFooter();
 }
+
 function toggleCompare(id) {
   if (state.compareSet.has(id)) state.compareSet.delete(id);
   else state.compareSet.add(id);
+
   updateCompareFooter();
 }
+
 function updateCompareFooter() {
   if (!el.bottomCompareInfo && !el.compareBtn && !el.footerRequestBtn) return;
+
   const count = state.compareSet.size;
-  if (el.bottomCompareInfo) el.bottomCompareInfo.textContent = count ? `${count} en comparación` : "";
-  if (el.compareBtn) el.compareBtn.disabled = count < 2;
-  if (el.footerRequestBtn) el.footerRequestBtn.textContent = count ? `Solicitar ${count} examen(es)` : "";
+
+  if (el.bottomCompareInfo) {
+    el.bottomCompareInfo.textContent = count ? `${count} tour(es) en comparación` : "";
+  }
+
+  if (el.compareBtn) {
+    el.compareBtn.disabled = count < 2;
+  }
+
+  if (el.footerRequestBtn) {
+    el.footerRequestBtn.textContent = count
+      ? `Reservar ${count} tour(es)`
+      : "";
+  }
 }
+
 function showCompareModal() {
   if (!el.compareModal || !el.compareModalBody) {
     // fallback: open a simple window
-    const exams = [...state.compareSet].map(id => examData.find(e => e.id === id));
-    let text = "Comparación:\n\n";
-    exams.forEach(ex => {
-      text += `${ex.name}\n  Preparación: ${ex.prep}\n  Tiempo: ${ex.time}\n  Precio: ${formatCurrency(ex.price)}\n\n`;
+    const tours = [...state.compareSet].map(id => tourData.find(e => e.id === id));
+
+    let text = "Comparación de tours:\n\n";
+    tours.forEach(ex => {
+      text += `${ex.name}\n` +
+              `  Qué llevar: ${ex.prep}\n` +
+              `  Duración: ${ex.time}\n` +
+              `  Precio: ${formatCurrency(ex.price)}\n\n`;
     });
+
     alert(text);
     return;
   }
 
-  const exams = [...state.compareSet].map(id => examData.find(e => e.id === id));
+  const tours = [...state.compareSet].map(id => tourData.find(e => e.id === id));
+
   el.compareModalBody.innerHTML = `
     <div class="compare-grid">
-      ${exams.map(ex => `
+      ${tours.map(ex => `
         <div class="compare-card">
           <h4>${escapeHtml(ex.name)}</h4>
           <p>${escapeHtml(ex.desc)}</p>
-          <p><b>Preparación:</b> ${escapeHtml(ex.prep)}</p>
-          <p><b>Tiempo:</b> ${escapeHtml(ex.time)}</p>
+          <p><b>Qué llevar:</b> ${escapeHtml(ex.prep)}</p>
+          <p><b>Duración:</b> ${escapeHtml(ex.time)}</p>
           <p><b>Precio:</b> ${formatCurrency(ex.price)}</p>
         </div>
       `).join("")}
     </div>
   `;
+
   el.compareModal.style.display = "block";
 
-  // attach modal close (if modal has close button with id modal-close or close-modal)
-  const modalClose = document.getElementById("modal-close") || document.getElementById("close-modal");
-  if (modalClose) modalClose.addEventListener("click", () => el.compareModal.style.display = "none");
+  // attach modal close
+  const modalClose =
+    document.getElementById("modal-close") ||
+    document.getElementById("close-modal");
+
+  if (modalClose) {
+    modalClose.addEventListener("click", () => {
+      el.compareModal.style.display = "none";
+    });
+  }
 }
 
 /* =========================
@@ -433,22 +508,30 @@ function showCompareModal() {
      * enviar()/agregarMensaje() etc.
    ========================= */
 
-/* sound for bot messages */
-const taboSound = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3");
+const taboSound = new Audio(
+  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_f54f6c3b7b.mp3?filename=notification-3-125447.mp3"
+);
 
 /* Helper to add message to chat UI and optionally save */
 function agregarMensaje(texto, tipo = "bot", guardar = true) {
   if (!el.chatMessages) return;
+
   const msg = document.createElement("div");
   msg.className = `msg ${tipo}`;
+
   // allow HTML in bot responses (for links)
   msg.innerHTML = texto;
+
   el.chatMessages.appendChild(msg);
   el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
 
   if (tipo === "bot") {
     // play sound
-    try { taboSound.play(); } catch (e) { /* ignore autoplay errors */ }
+    try {
+      taboSound.play();
+    } catch (e) {
+      /* ignore autoplay errors */
+    }
   }
 
   if (guardar) guardarMensaje(texto, tipo);
@@ -468,6 +551,7 @@ function guardarMensaje(texto, tipo) {
 /* restore history on load (called by initChat) */
 function restaurarHistorial() {
   if (!el.chatMessages) return;
+
   try {
     const historial = JSON.parse(localStorage.getItem("chatHistorial")) || [];
     historial.forEach(msg => {
@@ -476,33 +560,36 @@ function restaurarHistorial() {
       item.innerHTML = msg.texto;
       el.chatMessages.appendChild(item);
     });
+
     el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
   } catch (e) {
     console.warn("Error restaurando historial", e);
   }
 }
 
-/* remove history */
+/* remove history and restart chat */
 function reiniciarConversacion() {
   localStorage.removeItem("chatHistorial");
   localStorage.removeItem("chatIniciado");
+
   if (el.chatMessages) el.chatMessages.innerHTML = "";
+
   iniciarChat(true);
 }
 
-/* Start chat with welcome message once */
-function iniciarChat(force = false) {
-  if (!el.chatMessages || !el.chatBox) return;
-  if (!force && localStorage.getItem("chatIniciado")) return;
-  const welcome = 
-    "👋 ¡Hola! Soy <b>Taboplus</b>, tu asesor virtual. ¿Qué deseas hacer?<br/><br/>" +
-    "1️⃣ Consultar horarios<br/>" +
-    "2️⃣ Agendar cita<br/>" +
-    "3️⃣ Requisitos de exámenes<br/>" +
-    "4️⃣ Resultados<br/>" +
-    "5️⃣ Hablar con un agente";
-  agregarMensaje(welcome, "bot");
-  localStorage.setItem("chatIniciado", "1");
+/* =========================
+   WHATSAPP DINÁMICO POR TOUR
+   ========================= */
+function abrirWhatsAppTour(nombreTour) {
+  const phone = "573128462567";
+  const mensaje = encodeURIComponent(
+    `🌴 Hola SummerTripsAgency, estoy interesado en el tour "${nombreTour}". ` +
+    `Me gustaría recibir más información y realizar la reserva.`
+  );
+  window.open(
+    `https://api.whatsapp.com/send?phone=${phone}&text=${mensaje}`,
+    "_blank"
+  );
 }
 
 /* The main response handler (improved/responsive) */
@@ -512,28 +599,42 @@ function respuestaAutomatica(texto) {
 
   // shortcuts (numbers 1-5)
   if (t === "1" || t.includes("horario") || t.includes("hora")) {
-    return "🕒 Nuestro horario de atención es:<br/>Lun-Vie: 7:00 a.m. - 4:00 p.m.<br/>Sábados: 7:00 a.m. - 12:00 p.m.<br/>Domingos y festivos con cita previa.";
-  }
-  if (t === "2" || t.includes("agendar") || t.includes("cita")) {
-    return "📅 Puedes agendar tu cita escribiéndonos por WhatsApp al <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>+57 311 321 2221</a> o a través de nuestra página web.";
-  }
-  if (t === "3" || t.includes("requisito") || t.includes("preparaci") || t.includes("preparación")) {
-    return "📋 Cada examen tiene requisitos específicos. Por ejemplo, para exámenes de sangre se recomienda ayuno de 8 horas. ¿Deseas conocer los requisitos de un examen específico?";
-  }
-  if (t === "4" || t.includes("resultado")) {
-    return "📑 Puedes consultar tus resultados en línea o solicitarlos por WhatsApp. Generalmente están disponibles entre 24 y 48 horas después del examen.";
-  }
-  if (t === "5" || t.includes("agente") || t.includes("humano")) {
-    return "👩‍💼 Un agente humano te atenderá en breve. También puedes contactarnos por WhatsApp aquí: <a href='https://api.whatsapp.com/send?phone=573113212221' target='_blank'>Contactar</a>.";
-  }
-  if (t.includes("reiniciar") || t.includes("nuevo chat")) {
-    reiniciarConversacion();
-    return null; // reiniciarConversacion already displays welcome
+    return "🕒 Nuestro horario de atención es:<br/>" +
+           "Lun-Vie: 8:00 a.m. - 6:00 p.m.<br/>" +
+           "Sábados: 8:00 a.m. - 2:00 p.m.<br/>" +
+           "Domingos y festivos solo por WhatsApp.";
   }
 
-  // grid/list commands
+  if (t === "2" || t.includes("reserv") || t.includes("agendar")) {
+    return "📅 Puedes reservar tu tour fácilmente escribiéndonos por WhatsApp al " +
+           "<a href='https://api.whatsapp.com/send?phone=573128462567' target='_blank'>+57 312 8462567</a>. " +
+           "Un asesor te ayudará a elegir el mejor plan.";
+  }
+
+  if (t === "3" || t.includes("incluye") || t.includes("llevar") || t.includes("requisito")) {
+    return "🎒 Cada tour incluye servicios específicos como transporte, guía y alimentación. " +
+           "Normalmente recomendamos llevar traje de baño, bloqueador solar y ropa cómoda. " +
+           "¿Deseas información de un tour en particular?";
+  }
+
+  if (t === "4" || t.includes("información") || t.includes("detalle")) {
+    return "ℹ️ Te brindamos toda la información del tour antes de reservar: duración, horario, " +
+           "punto de encuentro e incluye. Escríbenos el nombre del tour que te interesa.";
+  }
+
+  if (t === "5" || t.includes("asesor") || t.includes("humano")) {
+    return "👩‍💼 Un asesor de SummerTripsAgency te atenderá en breve. " +
+           "También puedes escribirnos directamente por WhatsApp aquí: " +
+           "<a href='https://api.whatsapp.com/send?phone=573128462567' target='_blank'>Contactar</a>.";
+  }
+
+  if (t.includes("reiniciar") || t.includes("nuevo chat")) {
+    reiniciarConversacion();
+    return null;
+  }
+
+  // grid/list commands (NO SE TOCAN)
   if (t.includes("cuadr") || t.includes("grid")) {
-    // switch view to grid
     if (el.vistaGridBtn) el.vistaGridBtn.classList.add("active");
     if (el.vistaListBtn) el.vistaListBtn.classList.remove("active");
     state.currentView = "grid";
@@ -541,8 +642,9 @@ function respuestaAutomatica(texto) {
       el.examenesContainer.classList.remove("lista");
       el.examenesContainer.classList.add("cuadricula");
     }
-    return "✅ Ahora estás en vista de Cuadrícula.";
+    return "✅ Ahora estás viendo los tours en formato Cuadrícula.";
   }
+
   if (t.includes("lista") || t.includes("list")) {
     if (el.vistaListBtn) el.vistaListBtn.classList.add("active");
     if (el.vistaGridBtn) el.vistaGridBtn.classList.remove("active");
@@ -551,26 +653,33 @@ function respuestaAutomatica(texto) {
       el.examenesContainer.classList.remove("cuadricula");
       el.examenesContainer.classList.add("lista");
     }
-    return "✅ Ahora estás en vista de Lista.";
+    return "✅ Ahora estás viendo los tours en formato Lista.";
   }
 
-  // attempt to detect exam name and reply specific info
-  for (const ex of examData) {
-    // check if message includes significant word of exam name
+  // detectar nombre del tour
+  for (const ex of tourData) {
     const nameLower = ex.name.toLowerCase();
-    const nameWords = nameLower.split(/\s+/).filter(w => w.length > 3); // longer words
+    const nameWords = nameLower.split(/\s+/).filter(w => w.length > 3);
+
     if (nameWords.some(w => t.includes(w)) || t.includes(nameLower)) {
-      // return a specific, humanized response
-      return `Con gusto te explico sobre <b>${escapeHtml(ex.name)}</b>.<br/><br/>` +
+      return `🌴 Con gusto te cuento sobre <b>${escapeHtml(ex.name)}</b>.<br/><br/>` +
              `${escapeHtml(ex.desc)}<br/><br/>` +
-             `<b>Preparación:</b> ${escapeHtml(ex.prep || "No requiere")}<br/>` +
-             `<b>Tiempo:</b> ${escapeHtml(ex.time)} — <b>Precio aproximado:</b> ${formatCurrency(ex.price)}<br/><br/>` +
-             `¿Quieres que te lo solicite por WhatsApp?`;
+             `<b>Qué llevar:</b> ${escapeHtml(ex.prep || "Ropa cómoda")}<br/>` +
+             `<b>Duración:</b> ${escapeHtml(ex.time)}<br/>` +
+             `<b>Precio:</b> ${formatCurrency(ex.price)}<br/><br/>` +
+             `¿Deseas reservar este tour por WhatsApp?`;
     }
   }
 
   // fallback
-  return "🤖 Disculpa, no entendí del todo. Puedes escribir: 1 (horarios), 2 (agendar), 3 (requisitos), 4 (resultados), 5 (agente), o pedir que muestre la vista 'lista' o 'cuadrícula'.";
+  return "🌴 No entendí del todo tu mensaje.<br/><br/>" +
+         "Puedes escribir:<br/>" +
+         "1️⃣ Horarios<br/>" +
+         "2️⃣ Reservar un tour<br/>" +
+         "3️⃣ Qué incluye / qué llevar<br/>" +
+         "4️⃣ Información del tour<br/>" +
+         "5️⃣ Hablar con un asesor<br/><br/>" +
+         "O escribe el nombre del tour que te interesa.";
 }
 
 /* Set up chat event bindings and auto-open/historic restore */
@@ -581,65 +690,91 @@ function setupChatIntegration() {
   // restore history
   restaurarHistorial();
 
-  // auto-open on load with small delay (if not open)
+  // auto-open on load with small delay (only once)
   window.addEventListener("load", () => {
     setTimeout(() => {
-      // show chat
-      try { el.chatBox.style.display = "flex"; } catch (e) {}
+      try {
+        el.chatBox.style.display = "flex";
+      } catch (e) {}
+
+      // inicia chat solo si no existe historial activo
       iniciarChat();
+      
+      // mejora UX: foco automático en el input
+      if (el.chatInput) el.chatInput.focus();
     }, 600);
-  });
+  }, { once: true });
 
   // bind close toggle if available
-  if (el.chatClose) el.chatClose.addEventListener("click", () => { el.chatBox.style.display = "none"; });
-
-  // bind toggle button if available
-  if (el.chatToggle) el.chatToggle.addEventListener("click", () => {
-    if (el.chatBox.style.display === "flex") el.chatBox.style.display = "none";
-    else {
-      el.chatBox.style.display = "flex";
-      iniciarChat();
-    }
-  });
-
-  // send on Enter key for input if present
-  if (el.chatInput) {
-    el.chatInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") enviarChat();
+  if (el.chatClose) {
+    el.chatClose.addEventListener("click", () => {
+      el.chatBox.style.display = "none";
     });
   }
 
-  // bind explicit send button if exists (id 'send')
-  if (el.chatSend) el.chatSend.addEventListener("click", enviarChat);
+  // bind toggle button if available
+  if (el.chatToggle) {
+    el.chatToggle.addEventListener("click", () => {
+      const isOpen = el.chatBox.style.display === "flex";
+
+      if (isOpen) {
+        el.chatBox.style.display = "none";
+      } else {
+        el.chatBox.style.display = "flex";
+        iniciarChat();
+        if (el.chatInput) el.chatInput.focus();
+      }
+    });
+  }
+
+  // send on Enter key
+  if (el.chatInput) {
+    el.chatInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        enviarChat();
+      }
+    });
+  }
+
+  // bind explicit send button
+  if (el.chatSend) {
+    el.chatSend.addEventListener("click", enviarChat);
+  }
 }
 
-/* Unified send function for chat UI (compatible with older 'enviar' naming) */
+/* Unified send function for chat UI */
 function enviarChat() {
   if (!el.chatInput || !el.chatMessages) return;
+
   const texto = el.chatInput.value.trim();
   if (!texto) return;
 
-  // display user message and save
+  // mostrar mensaje del usuario
   agregarMensaje(escapeHtml(texto), "user", true);
 
-  // clear input
+  // limpiar input
   el.chatInput.value = "";
 
-  // compute bot reply
+  // respuesta automática
   setTimeout(() => {
     const reply = respuestaAutomatica(texto.toLowerCase());
-    if (reply !== null && reply !== undefined) agregarMensaje(reply, "bot", true);
+    if (reply !== null && reply !== undefined) {
+      agregarMensaje(reply, "bot", true);
+    }
   }, 650);
 }
 
-/* Also expose a global enviar() for HTML that uses onclick="enviar()" */
-function enviar() { enviarChat(); }
+/* Compatibilidad con HTML antiguo */
+function enviar() {
+  enviarChat();
+}
 
 /* =========================
    EXPOSICIÓN GLOBAL
    ========================= */
 window.App = window.App || {};
-window.App.examData = examData;
+window.App.tourData = tourData;
 window.App.renderExams = renderExams;
 window.App.openDetailModal = openDetailModal;
 window.App.openWhatsAppForExam = openWhatsAppForExam;
