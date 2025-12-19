@@ -76,11 +76,6 @@
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="css/styles.css" />
-
-    
-  <!-- Preload -->
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   </head>
   <body>
     <div class="wrap">
@@ -1411,65 +1406,71 @@
         </form>
       </section>
 
-       <!-- ================================
+    <!-- ================================
  ASESOR VIRTUAL TABOPLUS
 ================================ -->
-    <div class="asesor-container">
-      <!-- Botón del asesor virtual -->
-      <button id="chat-toggle">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
-          alt="Asesor Virtual Taboplus"
-        />
-      </button>
+  <div class="asesor-container">
+  <!-- Botón del asesor virtual -->
+  <button id="chat-toggle" aria-label="Abrir chat de asesor virtual">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+      alt="Asesor Virtual SummerTripsAgency"
+    />
+  </button>
 
-      <!-- Ventana de chat -->
-      <div id="chatbox">
-        <div id="chat-header">
-          🤖 Summer - Asesor Virtual
-          <span
-            id="chat-close"
-            style="cursor: pointer; float: right; font-weight: bold"
-          >
-            X
-          </span>
-        </div>
-
-        <div id="chat-messages"></div>
-
-        <div id="chat-input">
-          <input id="input" type="text" placeholder="Escribe aquí..." />
-          <button onclick="enviar()">➤</button>
-        </div>
-
-        <!-- Redes sociales -->
-        <div id="chat-social">
-          <a
-            href="https://wa.me/57312 846 25 67?text=Hola%2C%20quisiera%20más%20información"
-            target="_blank"
-            aria-label="WhatsApp"
-          >
-            <img src="images/whatsapp.png" alt="WhatsApp" />
-          </a>
-          <a
-            href="https://www.facebook.com/PlusLaboratorioClinico"
-            target="_blank"
-            aria-label="Facebook"
-          >
-            <img src="images/facebook.png" alt="Facebook" />
-          </a>
-          <a
-            href="https://www.instagram.com/laboratorio_clinico_plus"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <img src="images/instagram.png" alt="Instagram" />
-          </a>
-        </div>
-      </div>
+  <!-- Ventana de chat -->
+  <div id="chatbox" style="display: none;">
+    <div id="chat-header">
+      🌴 SummerTrips – Asesor Virtual
+      <span
+        id="chat-close"
+        style="cursor: pointer; float: right; font-weight: bold"
+        aria-label="Cerrar chat"
+      >
+        ✕
+      </span>
     </div>
 
+    <!-- Mensajes -->
+    <div id="chat-messages"></div>
+
+    <!-- Input -->
+    <div id="chat-input">
+      <input
+        id="input"
+        type="text"
+        placeholder="Escribe aquí..."
+        autocomplete="off"
+        aria-label="Mensaje"
+      />
+      <button onclick="enviar()" aria-label="Enviar mensaje">➤</button>
+    </div>
+
+    <!-- Redes sociales -->
+    <div id="chat-social">
+      <a
+        href="https://wa.me/573128462567?text=Hola%2C%20quisiera%20más%20información%20sobre%20los%20tours"
+        target="_blank"
+        aria-label="WhatsApp"
+        rel="noopener"
+      >
+        <img src="images/whatsapp.png" alt="WhatsApp" />
+      </a>
+
+      <a
+        href="https://www.instagram.com/summertripsagency_/"
+        target="_blank"
+        aria-label="Instagram"
+        rel="noopener"
+      >
+        <img src="images/instagram.png" alt="Instagram" />
+      </a>
+    </div>
+  </div>
+</div>
+
     <!-- Asesor virtual final -->
+
       <footer>
         <div
           style="
@@ -1494,13 +1495,29 @@
     <script src="./js/script.js"></script>
     <script src="./js/formulario.js"></script>
     <script src="./js/asesor.js"></script>
-    <script src="./js/asesor.js"></script>
+    <script src="./js/menu.js"></script>
 
+    <script>
+      const toggle = document.getElementById("toggleMenu");
+const menu = document.getElementById("menu");
+const links = document.querySelectorAll(".menu a");
+
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active");
+  menu.classList.toggle("active");
+
+  const expanded = toggle.getAttribute("aria-expanded") === "true";
+  toggle.setAttribute("aria-expanded", !expanded);
+});
+
+// Cerrar menú al hacer click en un link
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    toggle.classList.remove("active");
+    menu.classList.remove("active");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+});
+    </script>
   </body>
 </html>
-
-
-
-
-
-
