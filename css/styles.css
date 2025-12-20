@@ -1885,6 +1885,234 @@ footer{
   transform: scale(1.1);
 }
 
+/* ============================
+   SECCIONES GENERALES
+============================ */
+.section {
+  padding: clamp(48px, 6vw, 96px) 0;
+}
+
+.section.alt {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02),
+    rgba(0,0,0,0.12)
+  );
+  border-radius: 28px;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: clamp(18px, 3vw, 36px);
+  color: #fff;
+}
+
+/* ============================
+   GRID DE TARJETAS
+============================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 280px), 1fr)
+  );
+  gap: clamp(16px, 2.5vw, 28px);
+  align-items: stretch;
+}
+
+/* ============================
+   TARJETA TOUR
+============================ */
+.tour-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(0,0,0,0.18)
+  );
+  border-radius: clamp(16px, 2vw, 22px);
+  padding: clamp(14px, 2vw, 20px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgba(0,0,0,0.45);
+}
+
+/* ============================
+   IMAGEN / THUMB
+============================ */
+.tour-card .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: clamp(14px, 2vw, 18px);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: clamp(12px, 2vw, 18px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-card .thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.45),
+    transparent 65%
+  );
+}
+
+/* ============================
+   CONTENIDO
+============================ */
+.tour-card h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.tour-card p {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ============================
+   FOOTER CARD
+============================ */
+.card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ============================
+   PRECIO
+============================ */
+.price {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 800;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ============================
+   BOTONES
+============================ */
+.btn {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  transition: 
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Botón premium */
+.btn-gold {
+  background: linear-gradient(
+    90deg,
+    var(--accent-2),
+    #ffd18a
+  );
+  color: #000;
+}
+
+.btn-gold:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================
+   TARJETAS PREMIUM
+============================ */
+.tour-card.premium {
+  border: 1px solid rgba(255,184,107,0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(255,184,107,0.08),
+    rgba(0,0,0,0.2)
+  );
+}
+
+.premium-section h2 {
+  color: var(--accent-2);
+}
+
+/* ============================
+   RESPONSIVE EXTRA
+============================ */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .section.alt {
+    padding-inline: 16px;
+    border-radius: 18px;
+  }
+
+  .tour-card {
+    padding: 14px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Ultra pequeños */
+@media (max-width: 360px) {
+  .tour-card h3 {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 0.95rem;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .tour-card,
+  .btn {
+    transition: none;
+  }
+}
+
+
+
+
+
 
 
 
