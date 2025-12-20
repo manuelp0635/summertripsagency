@@ -94,11 +94,13 @@
 
         <!-- NAV normal en PC / oculto en móviles -->
         <nav id="mainNav">
-          <a href="#destinos">Destinos</a>
-          <a href="#paquetes">Paquetes</a>
-          <a href="#galeria">Galería</a>
-          <a href="#contacto" class="cta">Reservar ahora</a>
-        </nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#islas">Destinos</a>
+  <a href="#pasadias">Paquetes</a>
+  <a href="#premium">Galería</a>
+  <a href="#contacto" class="cta">Reservar ahora</a>
+</nav>
+
 
     <!-- BOTÓN HAMBURGUESA -->
   <button
@@ -1186,6 +1188,118 @@
         </div>
       </section>
 
+      <!-- ================= TOURS A LAS ISLAS ================= -->
+<section id="islas" class="section">
+  <h2>Tours a las Islas</h2>
+  <div class="cards-grid">
+
+    <article class="tour-card">
+      <div class="thumb" style="background-image:url('./images/Bora_bora.png')"></div>
+      <h3>Tour 5 Islas</h3>
+      <p class="muted">Bote deportivo · Snorkel · Playa Blanca</p>
+      <div class="card-footer">
+        <span class="price">$330.000 COP</span>
+        <a href="#contacto" class="btn">Reservar</a>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <div class="thumb" style="background-image:url('./images/Cocoterabeach.jpeg')"></div>
+      <h3>Cocotera Beach</h3>
+      <p class="muted">Relax frente al mar con almuerzo</p>
+      <div class="card-footer">
+        <span class="price">$320.000 COP</span>
+        <a href="#contacto" class="btn">Reservar</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= PASADÍAS ================= -->
+<section id="pasadias" class="section alt">
+  <h2>Pasadías</h2>
+  <div class="cards-grid">
+
+    <article class="tour-card">
+      <div class="thumb" style="background-image:url('./images/Pasadiachiringuito.jpeg')"></div>
+      <h3>Chiringuito Playa Blanca</h3>
+      <p class="muted">Transporte · Almuerzo · Cóctel</p>
+      <div class="card-footer">
+        <span class="price">$120.000 COP</span>
+        <a href="#contacto" class="btn">Reservar</a>
+      </div>
+    </article>
+
+    <article class="tour-card">
+      <div class="thumb" style="background-image:url('./images/Pasadiahoteldorado.jpeg')"></div>
+      <h3>Golden Hotel Dorado</h3>
+      <p class="muted">Piscina · Playa · Descanso</p>
+      <div class="card-footer">
+        <span class="price">$170.000 COP</span>
+        <a href="#contacto" class="btn">Reservar</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= BOTES Y YATES ================= -->
+<section id="botes" class="section">
+  <h2>Botes y Yates</h2>
+  <div class="cards-grid">
+
+    <article class="tour-card premium">
+      <div class="thumb" style="background-image:url('./images/yate.jpg')"></div>
+      <h3>Yate Privado</h3>
+      <p class="muted">Capitán · Sonido · Combustible</p>
+      <div class="card-footer">
+        <span class="price">Desde $1.500.000</span>
+        <a href="#contacto" class="btn btn-gold">Cotizar</a>
+      </div>
+    </article>
+
+    <article class="tour-card premium">
+      <div class="thumb" style="background-image:url('./images/bote.jpg')"></div>
+      <h3>Bote Deportivo</h3>
+      <p class="muted">Ideal para grupos y celebraciones</p>
+      <div class="card-footer">
+        <span class="price">Desde $850.000</span>
+        <a href="#contacto" class="btn btn-gold">Cotizar</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= EXPERIENCIAS PREMIUM ================= -->
+<section id="premium" class="section alt premium-section">
+  <h2>Experiencias Premium</h2>
+  <div class="cards-grid">
+
+    <article class="tour-card premium">
+      <div class="thumb" style="background-image:url('./images/premium1.jpg')"></div>
+      <h3>Romántico en el Mar</h3>
+      <p class="muted">Cena · Atardecer · Decoración</p>
+      <div class="card-footer">
+        <span class="price">Personalizado</span>
+        <a href="#contacto" class="btn btn-gold">Solicitar</a>
+      </div>
+    </article>
+
+    <article class="tour-card premium">
+      <div class="thumb" style="background-image:url('./images/premium2.jpg')"></div>
+      <h3>Celebraciones VIP</h3>
+      <p class="muted">Cumpleaños · Eventos privados</p>
+      <div class="card-footer">
+        <span class="price">A medida</span>
+        <a href="#contacto" class="btn btn-gold">Solicitar</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
       <section id="paquetes">
         <h2 style="margin: 20px 0 6px">Paquetes populares</h2>
         <div class="grid">
@@ -1516,5 +1630,18 @@ links.forEach(link => {
   });
 });
     </script>
+
+    <script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth" });
+  });
+});
+</script>
+
   </body>
 </html>
