@@ -858,9 +858,7 @@ img {
 /* ============================
    SECCIÓN TESTIMONIOS
 ============================ */
-/* ===============================
-   CONTENEDOR GENERAL TESTIMONIOS
-================================ */
+
 .testimonios {
   width: 100%;
   max-width: 1200px;
@@ -1244,6 +1242,28 @@ footer{
   right: 20px;
   z-index: 9999;
   font-family: "Poppins", sans-serif;
+}
+
+#chat-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00c6ff, #00e6a8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-size: 26px;
+}
+
+#chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+.chat-icon {
+  line-height: 1;
 }
 
 /* ====== BOTÓN FLOTANTE ====== */
@@ -1864,6 +1884,7 @@ footer{
   background: #008e6d;
   transform: scale(1.1);
 }
+
 
 
 
