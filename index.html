@@ -1521,7 +1521,7 @@
       </section>
 
     <!-- ================================
- ASESOR VIRTUAL TABOPLUS
+ ASESOR VIRTUAL Summer Bot
 ================================ -->
   <div class="asesor-container">
   <!-- Botón del asesor virtual -->
@@ -1532,7 +1532,7 @@
   <!-- Ventana de chat -->
   <div id="chatbox" style="display: none;">
     <div id="chat-header">
-      🌴 SummerTrips – Asesor Virtual
+      🌴 Summer Bot – Asesor Virtual
       <span
         id="chat-close"
         style="cursor: pointer; float: right; font-weight: bold"
@@ -1608,37 +1608,62 @@
     <script src="./js/asesor.js"></script>
     <script src="js/menu.js"></script>
 
-    <script>
-      const toggle = document.getElementById("toggleMenu");
-const menu = document.getElementById("menu");
-const links = document.querySelectorAll(".menu a");
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     MENÚ RESPONSIVE (AISLADO)
+     ========================= */
 
-toggle.addEventListener("click", () => {
-  toggle.classList.toggle("active");
-  menu.classList.toggle("active");
+  const toggle = document.getElementById("toggleMenu");
+  const menu = document.getElementById("menu");
 
-  const expanded = toggle.getAttribute("aria-expanded") === "true";
-  toggle.setAttribute("aria-expanded", !expanded);
-});
+  // Selecciona SOLO links del menú (evita conflicto con chat y otros enlaces)
+  const menuLinks = menu ? menu.querySelectorAll("a") : [];
 
-// Cerrar menú al hacer click en un link
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    toggle.classList.remove("active");
-    menu.classList.remove("active");
-    toggle.setAttribute("aria-expanded", "false");
-  });
-});
-    </script>
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      menu.classList.toggle("active");
 
-    <script>
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+    });
 
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth" });
+    // Cerrar menú al hacer click en un link del menú
+    menuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        menu.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* =========================
+     SCROLL SUAVE (SEGURO)
+     ========================= */
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+
+      // Evitar conflictos:
+      // - Enlaces vacíos
+      // - Botones del chat
+      // - Acciones JS
+      if (
+        !href ||
+        href === "#" ||
+        link.closest("#chatbox") ||
+        link.closest("#chat-toggle")
+      ) return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   });
 });
 </script>
