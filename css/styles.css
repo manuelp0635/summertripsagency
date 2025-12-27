@@ -145,6 +145,130 @@ p.lead{color:var(--muted); margin-bottom:18px;}
 .card h3{margin-bottom:8px;}
 .price{font-weight:800; color:var(--accent);}
 
+
+/* ==============================================
+
+    ESTILOS MOVILES
+
+================================================ */
+
+/* ===== HEADER ===== */
+.header-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #0b1c2d, #081521);
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-text strong {
+  display: block;
+  font-size: 15px;
+}
+
+.brand-text span {
+  font-size: 12px;
+  color: #9fb0c0;
+}
+
+.menu-btn {
+  background: #e9f2f6;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===== HERO ===== */
+.hero-mobile {
+  padding: 24px 16px 28px;
+  background: linear-gradient(180deg, #081521, #07121c);
+  color: #fff;
+}
+
+.hero-mobile h1 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.hero-mobile p {
+  font-size: 14px;
+  color: #a8b6c5;
+  margin-bottom: 20px;
+}
+
+/* ===== STATS ===== */
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+}
+
+.stat strong {
+  font-size: 20px;
+  display: block;
+}
+
+.stat span {
+  font-size: 13px;
+  color: #9fb0c0;
+}
+
+/* ===== ACTIONS ===== */
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  flex: 1;
+  text-align: center;
+  background: linear-gradient(135deg, #1de9b6, #00bfa5);
+  color: #03201b;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-outline {
+  flex: 1;
+  text-align: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
 /* ---------------- GALERÍA ---------------- */
 .gallery{
   display:grid;
@@ -1380,6 +1504,40 @@ img {
   }
 }
 
+/* --------------- MENU ------------- */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  display: none;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+.menu-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 85%;
+  max-width: 380px;
+  height: 100%;
+  background: var(--card);
+  padding: 24px;
+  overflow-y: auto;
+}
+
+
 /* ---------------- FOOTER ---------------- */
 footer{
   margin-top:38px;
@@ -2041,3 +2199,547 @@ footer{
     transition: none;
   }
 }
+
+/* =====================================================
+   NORMALIZACIÓN FINAL UX/UI – MOBILE FIRST
+   NO rompe estilos existentes
+===================================================== */
+
+/* 🔒 Protección contra overflow lateral */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 🔒 Todos los elementos respetan el ancho */
+*,
+*::before,
+*::after {
+  max-width: 100%;
+}
+
+/* =====================================================
+   BOTONES – UNIFICACIÓN VISUAL (sin romper estilos)
+===================================================== */
+button,
+a.btn,
+.btn,
+.btn-primary,
+.btn-outline,
+.cta {
+  min-height: 44px; /* accesibilidad táctil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Feedback táctil */
+button:active,
+a:active {
+  transform: scale(0.97);
+}
+
+/* =====================================================
+   CARDS – COMPORTAMIENTO SEGURO EN MOBILE
+===================================================== */
+.card,
+.hero-card,
+.tour-card,
+.testimonio-card {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Evita hover fantasma en móviles */
+@media (hover: none) {
+  .card:hover,
+  .hero-card:hover,
+  .tour-card:hover,
+  .testimonio-card:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* =====================================================
+   IMÁGENES – PREVENCIÓN DE DESBORDES
+===================================================== */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   SCROLL HORIZONTAL CONTROLADO (DESTINOS)
+===================================================== */
+.destinos-scroll {
+  overscroll-behavior-x: contain;
+  scroll-padding-left: 16px;
+}
+
+/* =====================================================
+   CHAT / ASESOR – ESTABILIDAD EN TODOS LOS MÓVILES
+===================================================== */
+#chatbox,
+.chatbot {
+  max-width: calc(100vw - 24px);
+}
+
+/* Evita que el teclado rompa la vista */
+@media (max-height: 500px) {
+  #chatbox,
+  .chatbot {
+    max-height: 75vh;
+  }
+}
+
+/* =====================================================
+   TIPOGRAFÍA RESPONSIVE GLOBAL
+===================================================== */
+h1, h2, h3, h4, h5, h6, p {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* =====================================================
+   SAFE AREAS (notch iOS / Android)
+===================================================== */
+header,
+.site-header,
+.hero,
+.hero-mobile {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* =====================================================
+   ULTRA SMALL DEVICES (≤ 360px)
+===================================================== */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .wrap {
+    padding: 14px !important;
+  }
+
+  .btn,
+  button,
+  .cta {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* =====================================================
+   ACCESIBILIDAD – REDUCCIÓN DE MOVIMIENTO
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =====================================================
+   CARRUSEL HORIZONTAL – TOURS ISLAS
+   NO rompe estilos existentes
+===================================================== */
+
+/* CONTENEDOR */
+#islas .cards-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 80%);
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OCULTAR SCROLLBAR */
+#islas .cards-grid::-webkit-scrollbar {
+  display: none;
+}
+#islas .cards-grid {
+  scrollbar-width: none;
+}
+
+/* CADA CARD */
+#islas .tour-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 260px;
+}
+
+/* EFECTO UX (solo desktop hover) */
+@media (hover: hover) {
+  #islas .tour-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* =====================================================
+   MOBILE FIRST
+===================================================== */
+@media (max-width: 768px) {
+  #islas .cards-grid {
+    grid-auto-columns: 85%;
+  }
+}
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+@media (max-width: 480px) {
+  #islas .cards-grid {
+    grid-auto-columns: 90%;
+  }
+}
+
+/* =====================================================
+   DESKTOP – VUELVE A GRID NORMAL
+===================================================== */
+@media (min-width: 1024px) {
+  #islas .cards-grid {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    overflow: visible;
+  }
+
+  #islas .tour-card {
+    min-width: unset;
+  }
+}
+
+/* =====================================================
+   CARRUSEL HORIZONTAL – PASADÍAS
+   NO rompe estilos existentes
+===================================================== */
+
+/* CONTENEDOR */
+#pasadias .cards-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 80%);
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OCULTAR SCROLLBAR */
+#pasadias .cards-grid::-webkit-scrollbar {
+  display: none;
+}
+#pasadias .cards-grid {
+  scrollbar-width: none;
+}
+
+/* CADA CARD */
+#pasadias .tour-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 260px;
+}
+
+/* EFECTO UX (solo desktop hover) */
+@media (hover: hover) {
+  #pasadias .tour-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* =====================================================
+   MOBILE FIRST
+===================================================== */
+@media (max-width: 768px) {
+  #pasadias .cards-grid {
+    grid-auto-columns: 85%;
+  }
+}
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+@media (max-width: 480px) {
+  #pasadias .cards-grid {
+    grid-auto-columns: 90%;
+  }
+}
+
+/* =====================================================
+   DESKTOP – VUELVE A GRID NORMAL
+===================================================== */
+@media (min-width: 1024px) {
+  #pasadias .cards-grid {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    overflow: visible;
+  }
+
+  #pasadias .tour-card {
+    min-width: unset;
+  }
+}
+
+/* =====================================================
+   CARRUSEL HORIZONTAL – BOTES & YATES (PREMIUM)
+   NO rompe estilos existentes
+===================================================== */
+
+/* CONTENEDOR */
+#botes .cards-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 82%);
+  gap: 18px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 14px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OCULTAR SCROLLBAR */
+#botes .cards-grid::-webkit-scrollbar {
+  display: none;
+}
+#botes .cards-grid {
+  scrollbar-width: none;
+}
+
+/* CADA CARD */
+#botes .tour-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 280px;
+}
+
+/* ELEVACIÓN PREMIUM */
+@media (hover: hover) {
+  #botes .tour-card.premium:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* =====================================================
+   MOBILE FIRST
+===================================================== */
+@media (max-width: 768px) {
+  #botes .cards-grid {
+    grid-auto-columns: 88%;
+  }
+}
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+@media (max-width: 480px) {
+  #botes .cards-grid {
+    grid-auto-columns: 92%;
+  }
+}
+
+/* =====================================================
+   DESKTOP – VUELVE A GRID NORMAL
+===================================================== */
+@media (min-width: 1024px) {
+  #botes .cards-grid {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow: visible;
+  }
+
+  #botes .tour-card {
+    min-width: unset;
+  }
+}
+
+/* =====================================================
+   CARRUSEL HORIZONTAL – EXPERIENCIAS PREMIUM
+   NO rompe estilos existentes
+===================================================== */
+
+/* CONTENEDOR */
+#premium .cards-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 85%);
+  gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OCULTAR SCROLLBAR */
+#premium .cards-grid::-webkit-scrollbar {
+  display: none;
+}
+#premium .cards-grid {
+  scrollbar-width: none;
+}
+
+/* CADA CARD */
+#premium .tour-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 300px;
+}
+
+/* ELEVACIÓN PREMIUM */
+@media (hover: hover) {
+  #premium .tour-card.premium:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* =====================================================
+   MOBILE FIRST
+===================================================== */
+@media (max-width: 768px) {
+  #premium .cards-grid {
+    grid-auto-columns: 90%;
+  }
+}
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+@media (max-width: 480px) {
+  #premium .cards-grid {
+    grid-auto-columns: 95%;
+  }
+}
+
+/* =====================================================
+   DESKTOP – VUELVE A GRID NORMAL
+===================================================== */
+@media (min-width: 1024px) {
+  #premium .cards-grid {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    overflow: visible;
+  }
+
+  #premium .tour-card {
+    min-width: unset;
+  }
+}
+
+/* =====================================================
+   CARRUSEL HORIZONTAL – PAQUETES POPULARES
+   Mantiene estilos originales
+===================================================== */
+
+#paquetes .grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 85%);
+  gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar scrollbar */
+#paquetes .grid::-webkit-scrollbar {
+  display: none;
+}
+#paquetes .grid {
+  scrollbar-width: none;
+}
+
+/* Cada card */
+#paquetes .card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 280px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover elegante desktop */
+@media (hover: hover) {
+  #paquetes .card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+@media (max-width: 768px) {
+  #paquetes .grid {
+    grid-auto-columns: 90%;
+  }
+}
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+@media (max-width: 480px) {
+  #paquetes .grid {
+    grid-auto-columns: 95%;
+  }
+}
+
+/* =====================================================
+   DESKTOP – GRID NORMAL
+===================================================== */
+@media (min-width: 1024px) {
+  #paquetes .grid {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow: visible;
+  }
+
+  #paquetes .card {
+    min-width: unset;
+  }
+}
+
+
+/*-- ============================================
+
+
+
