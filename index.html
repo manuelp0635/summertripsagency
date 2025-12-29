@@ -76,46 +76,58 @@
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  defer
+></script>
+
   </head>
   <body>
     <div class="wrap">
   <header class="site-header">
-    <div class="brand">
-      <div class="logo">
-        <img src="./images/logo.jpeg" alt="Logo de la empresa" />
-      </div>
-      <div>
-        <div style="font-weight: 800">Summer Trips Agency</div>
-        <div class="muted" style="font-size: 13px">
-          Cartagena · Paquetes dentro y fuera de la ciudad
-        </div>
+  <!-- BRAND -->
+  <div class="brand">
+    <div class="logo">
+      <img src="./images/logo.jpeg" alt="Logo Summer Trips Agency" />
+    </div>
+    <div>
+      <div class="texto">Summer Trips Agency</div>
+      <div class="muted">
+        Cartagena · Paquetes dentro y fuera de la ciudad
       </div>
     </div>
+  </div>
 
-    <!-- NAV DESKTOP -->
-    <nav id="mainNav">
-      <a href="#inicio">Inicio</a>
-      <a href="#islas">Destinos</a>
-      <a href="#pasadias">Paquetes</a>
-      <a href="#premium">Galería</a>
-      <a href="#contacto" class="cta">Reservar ahora</a>
-    </nav>
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#inicio">Inicio</a>
+    <a href="#destinos">Destinos</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto" class="cta">Reservar ahora</a>
+  </nav>
 
-    <!-- BOTÓN HAMBURGUESA -->
-    <button
-      class="menu-toggle"
-      id="toggleMenu"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
+  <!-- HAMBURGUESA (solo mobile) -->
+  <button
+    class="menu-toggle"
+    id="toggleMenu"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
 
   <!-- ===== HERO ===== -->
-<section class="hero-mobile">
+<section class="hero-mobile" id="inicio">
   <h1>
     Explora Cartagena y los mejores destinos de Colombia con estilo
   </h1>
@@ -990,6 +1002,20 @@
     <script src="./js/formulario.js"></script>
     <script src="./js/asesor.js"></script>
     <script src="js/menu.js"></script>
+
+    <script>
+  const toggleMenu = document.getElementById("toggleMenu");
+  const mainNav = document.getElementById("mainNav");
+
+  toggleMenu.addEventListener("click", () => {
+    mainNav.classList.toggle("active");
+
+    const expanded =
+      toggleMenu.getAttribute("aria-expanded") === "true";
+    toggleMenu.setAttribute("aria-expanded", !expanded);
+  });
+</script>
+
 
    <script>
 document.addEventListener("DOMContentLoaded", () => {
