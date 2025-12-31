@@ -88,6 +88,59 @@ body {
   margin: 15px 0 25px;
 }
 
+/* ==============================
+   CARRUSEL – OPTIMIZACIÓN VISUAL
+   (sin perder diseño original)
+================================ */
+
+.carousel-section {
+  width: 100%;
+  padding: 24px 0; /* reduce sensación de bloque gigante */
+}
+
+.carousel {
+  max-width: 1140px;     /* controla el ancho visual */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.carousel-track {
+  display: flex;
+}
+
+/* 🔥 AJUSTE CLAVE */
+.slide {
+  min-width: 100%;
+  height: 260px;               /* tamaño equilibrado */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ==============================
+   RESPONSIVE FINO
+================================ */
+
+@media (max-width: 992px) {
+  .slide {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    height: 170px;
+  }
+}
+
+
 /* ================= BUTTONS ================= */
 .btn-primary {
   display: inline-block;
@@ -118,10 +171,11 @@ body {
 
 .slide {
   min-width: 100%;
-  height: 320px;
+  aspect-ratio: 21 / 9; /* ultra wide */
   background-size: cover;
   background-position: center;
 }
+
 
 /* ================= FILTERS ================= */
 .filters {
@@ -282,6 +336,90 @@ body {
   margin-top: 25px;
   font-size: 1.1rem;
 }
+
+/* =========================
+   SEO HIDDEN CONTENT
+   Visible for Google, hidden for users
+========================= */
+.seo-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
+   WHY US SECTION
+========================= */
+.why-us {
+  background: #f9fafb;
+  text-align: center;
+}
+
+.why-us h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.why-us-subtitle {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.why-card {
+  background: #ffffff;
+  padding: 28px 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.why-icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.why-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .why-us h2 {
+    font-size: 1.6rem;
+  }
+
+  .why-us-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
 
 /* ================= FOOTER ================= */
 .footer {
