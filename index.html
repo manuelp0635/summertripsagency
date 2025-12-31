@@ -18,7 +18,7 @@
 
 <header class="header">
   <div class="logo">
-    <img src="./images/logo.jpeg" alt="Summer Trips Agency">
+    <img src="./images/logo.jpeg" alt="Summer Trips Agency" loading="lazy" decoding="async">
     <span>Summer Trips</span>
   </div>
 
@@ -75,75 +75,364 @@
 
     <!-- LUXURY OPEN BAR – BEACH -->
     <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('./images/luxury-open\ bar\ -beach.jpeg')"></div>
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
       <h3>Luxury Open Bar – Beach</h3>
       <p>
         Open bar · Beach atmosphere · Rosario Islands  
         <br><small>Transportation + Lunch included</small>
       </p>
       <strong>$420.000 COP</strong>
-      <button onclick="addToCart('Luxury Open Bar – Beach',420000)">
-        Add to cart
-      </button>
+      <button onclick="addToCart('Luxury Open Bar – Beach',420000)">Add to cart</button>
     </article>
 
     <!-- LUXURY OPEN BAR – VIP -->
     <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('./images/luxury-open-bar-beach\ vip.jpeg')"></div>
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206')"></div>
       <h3>Luxury Open Bar – VIP</h3>
       <p>
         VIP beds · DJ · Unlimited drinks  
         <br><small>Premium experience in Rosario Islands</small>
       </p>
       <strong>$490.000 COP</strong>
-      <button onclick="addToCart('Luxury Open Bar – VIP',490000)">
-        Add to cart
-      </button>
+      <button onclick="addToCart('Luxury Open Bar – VIP',490000)">Add to cart</button>
     </article>
 
     <!-- PAO PAO ISLAND -->
     <article class="card" data-category="islas">
-      <div class="thumb" style="background-image:url('./images/pao-pao-island.jpeg')"></div>
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
       <h3>Pao Pao Island</h3>
       <p>
         Nature · Pool · Beach club  
         <br><small>Speedboat + Welcome drink + Lunch</small>
       </p>
       <strong>$390.000 COP</strong>
-      <button onclick="addToCart('Pao Pao Island',390000)">
-        Add to cart
-      </button>
+      <button onclick="addToCart('Pao Pao Island',390000)">Add to cart</button>
     </article>
 
     <!-- CHOLÓN PARTY -->
     <article class="card" data-category="fiesta">
-      <div class="thumb" style="background-image:url('./images/cholon\ party.jpeg')"></div>
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')"></div>
       <h3>Cholón Party</h3>
       <p>
         Music · Drinks · Party boat  
         <br><small>Young vibe · Social experience</small>
       </p>
       <strong>$350.000 COP</strong>
-      <button onclick="addToCart('Cholón Party',350000)">
-        Add to cart
-      </button>
+      <button onclick="addToCart('Cholón Party',350000)">Add to cart</button>
     </article>
+
+    <!-- AMO BEACH CLUB -->
+    <article class="card" data-category="playa">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
+      <h3>Amo Beach Club</h3>
+      <p>Luxury beach club · Pool · Relax<br><small>Boat + Lunch included</small></p>
+      <strong>$430.000 COP</strong>
+      <button onclick="addToCart('Amo Beach Club',430000)">Add to cart</button>
+    </article>
+
+    <!-- BLUE APPLE BEACH -->
+    <article class="card" data-category="playa">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
+      <h3>Blue Apple Beach</h3>
+      <p>Exclusive island · Pool · Music<br><small>Transport + Lunch</small></p>
+      <strong>$450.000 COP</strong>
+      <button onclick="addToCart('Blue Apple Beach',450000)">Add to cart</button>
+    </article>
+
+    <!-- PLAYA TRANQUILA -->
+    <article class="card" data-category="playa">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
+      <h3>Playa Tranquila</h3>
+      <p>Crystal waters · Snorkel<br><small>Boat + Lunch</small></p>
+      <strong>$320.000 COP</strong>
+      <button onclick="addToCart('Playa Tranquila',320000)">Add to cart</button>
+    </article>
+
+    <!-- ISLA BELLA -->
+    <article class="card" data-category="islas">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
+      <h3>Isla Bella</h3>
+      <p>Nature · Private beach<br><small>Transport + Lunch</small></p>
+      <strong>$380.000 COP</strong>
+      <button onclick="addToCart('Isla Bella',380000)">Add to cart</button>
+    </article>
+
+    <!-- ISLA DEL ENCANTO -->
+    <article class="card" data-category="islas">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1')"></div>
+      <h3>Isla del Encanto</h3>
+      <p>Family friendly · Pool<br><small>Boat + Buffet</small></p>
+      <strong>$410.000 COP</strong>
+      <button onclick="addToCart('Isla del Encanto',410000)">Add to cart</button>
+    </article>
+
+    <!-- TIERRA BOMBA -->
+    <article class="card" data-category="playa">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
+      <h3>Tierra Bomba Beach</h3>
+      <p>Close to city · Chill vibe<br><small>Boat + Lunch</small></p>
+      <strong>$280.000 COP</strong>
+      <button onclick="addToCart('Tierra Bomba Beach',280000)">Add to cart</button>
+    </article>
+
+    <!-- BORA BORA BEACH -->
+    <article class="card" data-category="playa">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
+      <h3>Bora Bora Beach Club</h3>
+      <p>Top rated · Party & relax<br><small>Boat + Lunch</small></p>
+      <strong>$440.000 COP</strong>
+      <button onclick="addToCart('Bora Bora Beach Club',440000)">Add to cart</button>
+    </article>
+
+    <!-- SUNSET PARTY BOAT -->
+    <article class="card" data-category="fiesta">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
+      <h3>Sunset Party Boat</h3>
+      <p>DJ · Drinks · Sunset<br><small>2 hours experience</small></p>
+      <strong>$250.000 COP</strong>
+      <button onclick="addToCart('Sunset Party Boat',250000)">Add to cart</button>
+    </article>
+
+    <!-- CARTAGENA CITY TOUR -->
+    <article class="card" data-category="ciudad">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
+      <h3>Cartagena City Tour</h3>
+      <p>Historic center · Getsemaní<br><small>Guide included</small></p>
+      <strong>$180.000 COP</strong>
+      <button onclick="addToCart('Cartagena City Tour',180000)">Add to cart</button>
+    </article>
+
+    <!-- CARTAGENA HISTÓRICA -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
+  <h3>Cartagena Histórica</h3>
+  <p>Ciudad amurallada · Cultura<br><small>Guía local incluido</small></p>
+  <strong>$180.000 COP</strong>
+  <button onclick="addToCart('Cartagena Histórica',180000)">Add to cart</button>
+</article>
+
+<!-- ISLAS DEL ROSARIO -->
+<article class="card" data-category="islas">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1')"></div>
+  <h3>Islas del Rosario</h3>
+  <p>Mar cristalino · Snorkel<br><small>Lancha + Almuerzo</small></p>
+  <strong>$370.000 COP</strong>
+  <button onclick="addToCart('Islas del Rosario',370000)">Add to cart</button>
+</article>
+
+<!-- SAN ANDRÉS -->
+<article class="card" data-category="islas">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
+  <h3>San Andrés</h3>
+  <p>Mar de 7 colores<br><small>Tour panorámico</small></p>
+  <strong>$420.000 COP</strong>
+  <button onclick="addToCart('San Andrés',420000)">Add to cart</button>
+</article>
+
+<!-- PROVIDENCIA -->
+<article class="card" data-category="islas">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
+  <h3>Providencia</h3>
+  <p>Isla natural · Relax<br><small>Experiencia eco</small></p>
+  <strong>$480.000 COP</strong>
+  <button onclick="addToCart('Providencia',480000)">Add to cart</button>
+</article>
+
+<!-- TAYRONA -->
+<article class="card" data-category="naturaleza">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
+  <h3>Parque Tayrona</h3>
+  <p>Playas vírgenes · Selva<br><small>Entrada incluida</small></p>
+  <strong>$320.000 COP</strong>
+  <button onclick="addToCart('Parque Tayrona',320000)">Add to cart</button>
+</article>
+
+<!-- MINCA -->
+<article class="card" data-category="montaña">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
+  <h3>Minca</h3>
+  <p>Café · Cascadas<br><small>Tour ecológico</small></p>
+  <strong>$220.000 COP</strong>
+  <button onclick="addToCart('Minca',220000)">Add to cart</button>
+</article>
+
+<!-- MEDELLÍN -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206')"></div>
+  <h3>Medellín City Tour</h3>
+  <p>Comuna 13 · Metrocable<br><small>Guía profesional</small></p>
+  <strong>$200.000 COP</strong>
+  <button onclick="addToCart('Medellín City Tour',200000)">Add to cart</button>
+</article>
+
+<!-- GUATAPÉ -->
+<article class="card" data-category="montaña">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
+  <h3>Guatapé & Piedra del Peñol</h3>
+  <p>Vista panorámica<br><small>Transporte incluido</small></p>
+  <strong>$260.000 COP</strong>
+  <button onclick="addToCart('Guatapé',260000)">Add to cart</button>
+</article>
+
+<!-- SALENTO -->
+<article class="card" data-category="montaña">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
+  <h3>Salento</h3>
+  <p>Pueblo colonial · Café<br><small>Experiencia cultural</small></p>
+  <strong>$240.000 COP</strong>
+  <button onclick="addToCart('Salento',240000)">Add to cart</button>
+</article>
+
+<!-- VALLE DEL COCORA -->
+<article class="card" data-category="naturaleza">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
+  <h3>Valle del Cocora</h3>
+  <p>Palmas de cera<br><small>Caminata guiada</small></p>
+  <strong>$230.000 COP</strong>
+  <button onclick="addToCart('Valle del Cocora',230000)">Add to cart</button>
+</article>
+
+<!-- CAÑO CRISTALES -->
+<article class="card" data-category="naturaleza">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0')"></div>
+  <h3>Caño Cristales</h3>
+  <p>Río de colores<br><small>Temporada especial</small></p>
+  <strong>$520.000 COP</strong>
+  <button onclick="addToCart('Caño Cristales',520000)">Add to cart</button>
+</article>
+
+<!-- DESIERTO DE LA TATACOA -->
+<article class="card" data-category="naturaleza">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')"></div>
+  <h3>Desierto de la Tatacoa</h3>
+  <p>Paisaje árido · Astronomía<br><small>Tour nocturno</small></p>
+  <strong>$300.000 COP</strong>
+  <button onclick="addToCart('Desierto de la Tatacoa',300000)">Add to cart</button>
+</article>
+
+<!-- BOGOTÁ -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
+  <h3>Bogotá Cultural</h3>
+  <p>Monserrate · Museo Oro<br><small>Tour urbano</small></p>
+  <strong>$190.000 COP</strong>
+  <button onclick="addToCart('Bogotá Cultural',190000)">Add to cart</button>
+</article>
+
+<!-- VILLA DE LEYVA -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
+  <h3>Villa de Leyva</h3>
+  <p>Arquitectura colonial<br><small>Excursión histórica</small></p>
+  <strong>$250.000 COP</strong>
+  <button onclick="addToCart('Villa de Leyva',250000)">Add to cart</button>
+</article>
+
+<!-- SANTA FE DE ANTIOQUIA -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
+  <h3>Santa Fe de Antioquia</h3>
+  <p>Pueblo patrimonial<br><small>Puente de Occidente</small></p>
+  <strong>$210.000 COP</strong>
+  <button onclick="addToCart('Santa Fe de Antioquia',210000)">Add to cart</button>
+</article>
+
+<!-- AMAZONAS -->
+<article class="card" data-category="naturaleza">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
+  <h3>Amazonas Colombiano</h3>
+  <p>Selva · Cultura indígena<br><small>Tour ecoaventura</small></p>
+  <strong>$600.000 COP</strong>
+  <button onclick="addToCart('Amazonas Colombiano',600000)">Add to cart</button>
+</article>
+
+<!-- BAHÍA SOLANO -->
+<article class="card" data-category="playa">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
+  <h3>Bahía Solano</h3>
+  <p>Pacífico · Avistamiento ballenas<br><small>Temporada especial</small></p>
+  <strong>$550.000 COP</strong>
+  <button onclick="addToCart('Bahía Solano',550000)">Add to cart</button>
+</article>
+
+<!-- CAPURGANA -->
+<article class="card" data-category="playa">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
+  <h3>Capurganá</h3>
+  <p>Playas vírgenes · Buceo<br><small>Plan completo</small></p>
+  <strong>$480.000 COP</strong>
+  <button onclick="addToCart('Capurganá',480000)">Add to cart</button>
+</article>
+
+<!-- BARICHARA -->
+<article class="card" data-category="ciudad">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
+  <h3>Barichara</h3>
+  <p>Pueblo más lindo de Colombia<br><small>Tour cultural</small></p>
+  <strong>$230.000 COP</strong>
+  <button onclick="addToCart('Barichara',230000)">Add to cart</button>
+</article>
+
+<!-- SAN GIL -->
+<article class="card" data-category="aventura">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206')"></div>
+  <h3>San Gil</h3>
+  <p>Rafting · Aventura extrema<br><small>Actividades incluidas</small></p>
+  <strong>$290.000 COP</strong>
+  <button onclick="addToCart('San Gil',290000)">Add to cart</button>
+</article>
+
+<!-- CERRO DE MONSERRATE -->
+<article class="card" data-category="montaña">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
+  <h3>Cerro de Monserrate</h3>
+  <p>Vista panorámica Bogotá<br><small>Teleférico incluido</small></p>
+  <strong>$160.000 COP</strong>
+  <button onclick="addToCart('Cerro de Monserrate',160000)">Add to cart</button>
+</article>
+
+<!-- NEVADO DEL RUIZ -->
+<article class="card" data-category="montaña">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
+  <h3>Nevado del Ruiz</h3>
+  <p>Nieve · Alta montaña<br><small>Excursión guiada</small></p>
+  <strong>$410.000 COP</strong>
+  <button onclick="addToCart('Nevado del Ruiz',410000)">Add to cart</button>
+</article>
+
+<!-- CABO DE LA VELA -->
+<article class="card" data-category="playa">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')"></div>
+  <h3>Cabo de la Vela</h3>
+  <p>Desierto · Cultura Wayúu<br><small>Tour étnico</small></p>
+  <strong>$340.000 COP</strong>
+  <button onclick="addToCart('Cabo de la Vela',340000)">Add to cart</button>
+</article>
+
+<!-- PUNTA GALLINAS -->
+<article class="card" data-category="playa">
+  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0')"></div>
+  <h3>Punta Gallinas</h3>
+  <p>Punto más norte de Sudamérica<br><small>Aventura 4x4</small></p>
+  <strong>$520.000 COP</strong>
+  <button onclick="addToCart('Punta Gallinas',520000)">Add to cart</button>
+</article>
 
   </div>
 </section>
 
 <!-- TESTIMONIAL -->
 <section class="testimonials">
-  <p>⭐⭐⭐⭐⭐ “Excellent service. We traveled to Cartagena and were very happy with the attention and organization of the tours. Everything was exactly as promised: punctuality, reliability, and a friendly approach that made us feel like family. So much so, that we've already recommended the service to other friends, and they were also delighted. Highly recommended for their honesty and professionalism.”</p>
+  <p>⭐⭐⭐⭐⭐ “Excellent service. We traveled to Cartagena and were very happy with the attention and organization of the tours...”</p>
   <strong>Emily – USA</strong>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="footer" id="contacto">
   <div class="footer-container">
 
     <div class="footer-brand">
-      <img src="./images/logo.jpeg" alt="Summer Trips Agency">
+      <img src="./images/logo.jpeg" alt="Summer Trips Agency" loading="lazy" decoding="async">
       <p>
         Premium tours in Cartagena.<br>
         Islands, beaches and unforgettable experiences.
@@ -159,9 +448,7 @@
 
     <div class="footer-contact">
       <h4>Book now</h4>
-      <a href="https://wa.me/573128462567" class="btn-primary">
-        WhatsApp
-      </a>
+      <a href="https://wa.me/573128462567" class="btn-primary">WhatsApp</a>
       <span>📍 Cartagena, Colombia</span>
     </div>
 
@@ -188,6 +475,8 @@
   </div>
 </div>
 
-<script src="js/app.js"></script>
+<!-- JS OPTIMIZADO -->
+<script src="js/app.js" defer></script>
+
 </body>
 </html>
