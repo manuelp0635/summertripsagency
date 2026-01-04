@@ -140,6 +140,113 @@ body {
   }
 }
 
+/* CONTENEDOR PRINCIPAL */
+.asesor-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+}
+
+/* BOTÓN FLOTANTE */
+#chat-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+#chat-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* CHAT BOX */
+.chat-box {
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: none;
+  animation: fadeUp 0.3s ease;
+}
+
+/* HEADER */
+.chat-header {
+  background: #16a085;
+  color: #fff;
+  padding: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-close {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* BODY */
+.chat-body {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.bot-msg {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp-btn {
+  display: block;
+  text-align: center;
+  background: #25d366;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .chat-box {
+    width: 90vw;
+    right: -10px;
+  }
+}
+
 
 /* ================= BUTTONS ================= */
 .btn-primary {
