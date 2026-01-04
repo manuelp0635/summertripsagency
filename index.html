@@ -824,8 +824,35 @@
       </div>
     </footer>
 
-    <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/573128462567" class="whatsapp-float">💬</a>
+    <!-- ASESOR VIRTUAL -->
+<div class="asesor-container">
+  <button id="chat-toggle" aria-label="Asesor Virtual">
+    🌴
+  </button>
+
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      🌴 Summer Bot
+      <span id="chat-close">✕</span>
+    </div>
+
+    <div class="chat-body">
+      <p class="bot-msg">
+        👋 ¡Hola! Soy tu asesor virtual.<br />
+        ¿En qué tour te gustaría recibir información?
+      </p>
+
+      <a
+        href="https://wa.me/573128462567"
+        target="_blank"
+        class="whatsapp-btn"
+      >
+        📲 Hablar por WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
 
     <!-- CART -->
     <div class="cart" id="cart">
@@ -850,7 +877,7 @@
         "@context": "https://schema.org",
         "@type": "TravelAgency",
         "name": "Summer Trips Agency",
-        "image": "https://tusitio.com/images/logo.jpeg",
+        "image": "images/logo.jpeg",
         "url": "https://tusitio.com",
         "telephone": "+57 312 846 2567",
         "address": {
@@ -859,10 +886,26 @@
           "addressCountry": "CO"
         },
         "sameAs": [
-          "https://www.instagram.com/tuinstagram",
+          "https://www.instagram.com/summertripsagency_/",
           "https://www.facebook.com/tufacebook"
         ]
       }
     </script>
+
+    <!-- Asesor virtual -->
+     <script>
+  const toggleBtn = document.getElementById("chat-toggle");
+  const chatBox = document.getElementById("chatBox");
+  const closeBtn = document.getElementById("chat-close");
+
+  toggleBtn.addEventListener("click", () => {
+    chatBox.style.display =
+      chatBox.style.display === "block" ? "none" : "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatBox.style.display = "none";
+  });
+</script>
   </body>
 </html>
