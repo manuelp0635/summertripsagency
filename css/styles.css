@@ -90,53 +90,134 @@ body {
 
 /* ==============================
    CARRUSEL – OPTIMIZACIÓN VISUAL
-   (sin perder diseño original)
+   + RECOMENDACIONES UX/UI
 ================================ */
 
+/* CONTENEDOR GENERAL */
 .carousel-section {
   width: 100%;
-  padding: 24px 0; /* reduce sensación de bloque gigante */
+  padding: 24px 0;
 }
 
+/* CARRUSEL */
 .carousel {
-  max-width: 1140px;     /* controla el ancho visual */
+  max-width: 1140px;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 18px; /* UI: sensación premium */
 }
 
+/* TRACK */
 .carousel-track {
   display: flex;
-}
-
-/* 🔥 AJUSTE CLAVE */
-.slide {
-  min-width: 100%;
-  height: 260px;               /* tamaño equilibrado */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+  /* UX: transición suave y natural */
 }
 
 /* ==============================
-   RESPONSIVE FINO
+   SLIDE BASE (BANNERS CON TEXTO)
+================================ */
+.slide {
+  min-width: 100%;
+  height: 260px;
+
+  /* UX clave: no cortar texto */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* UI: evita fondo vacío */
+  background-color: #0fa3a3;
+
+  /* UX/UI: mejora legibilidad */
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* ==============================
+   RESPONSIVE PROGRESIVO
 ================================ */
 
-@media (max-width: 992px) {
+/* 📱 MÓVILES MUY PEQUEÑOS (≤360px) */
+@media (max-width: 360px) {
+  .carousel-section {
+    padding: 10px 0; /* UX: menos scroll */
+  }
+
   .slide {
-    height: 220px;
+    height: 150px;
   }
 }
 
+/* 📱 MÓVILES ESTÁNDAR */
+@media (max-width: 480px) {
+  .carousel {
+    border-radius: 12px; /* UI: acorde a mobile */
+  }
+
+  .slide {
+    height: 170px;
+  }
+}
+
+/* 📱 MÓVILES GRANDES */
+@media (max-width: 640px) {
+  .slide {
+    height: 190px;
+  }
+}
+
+/* 📱 TABLETS VERTICALES */
 @media (max-width: 768px) {
+  .carousel {
+    max-width: 96%;
+  }
+
   .slide {
     height: 200px;
   }
 }
 
-@media (max-width: 480px) {
+/* 📱 TABLETS HORIZONTALES */
+@media (max-width: 992px) {
+  .carousel {
+    max-width: 92%;
+  }
+
   .slide {
-    height: 170px;
+    height: 220px;
+  }
+}
+
+/* 💻 LAPTOPS */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .carousel {
+    max-width: 1100px;
+  }
+
+  .slide {
+    height: 260px;
+  }
+}
+
+/* 🖥️ DESKTOP GRANDES */
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .carousel {
+    max-width: 1240px;
+  }
+
+  .slide {
+    height: 300px;
+  }
+}
+
+/* 🖥️ 2K / 4K */
+@media (min-width: 1601px) {
+  .carousel {
+    max-width: 1400px;
+  }
+
+  .slide {
+    height: 360px;
   }
 }
 
