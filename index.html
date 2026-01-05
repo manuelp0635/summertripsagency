@@ -48,31 +48,35 @@
       </div>
     </header>
 
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-      <div class="hero-overlay">
-        <h1
-          data-es="Vive Cartagena como nunca"
-          data-en="Experience Cartagena Like Never Before"
-        >
-          Vive Cartagena como nunca
-        </h1>
-        <p
-          data-es="Tours premium · Islas · Playa · Diversión"
-          data-en="Premium tours · Islands · Beach · Fun"
-        >
-          Tours premium · Islas · Playa · Diversión
-        </p>
-        <a
-          href="#tours"
-          class="btn-primary"
-          data-es="Ver tours"
-          data-en="View tours"
-          >Ver tours</a
-        >
-      </div>
-    </section>
-    <br />
+    <!-- VIDEOS RELACIONADOS + TEXTO -->
+
+    <section class="video-carousel">
+  <div class="video-wrapper">
+
+    <!-- TEXTO SUPERPUESTO -->
+    <div class="video-overlay">
+      <h2>Somos <span>Summer Trips</span></h2>
+      <p>Tu agencia de turismo preferida</p>
+    </div>
+
+    <!-- VIDEOS -->
+    <video
+      class="carousel-video active"
+      src="videos/1.mp4"
+      muted
+      playsinline
+    ></video>
+
+    <video
+      class="carousel-video"
+      src="videos/2.mp4"
+      muted
+      playsinline
+    ></video>
+
+  </div>
+</section>
+
 
     <!-- CARRUSEL -->
     <section class="carousel-section">
@@ -80,11 +84,11 @@
         <div class="carousel-track" id="carouselTrack">
           <div
             class="slide"
-            style="background-image: url('./images/1.jpg')"
+            style="background-image: url('./images/1.png')"
           ></div>
           <div
             class="slide"
-            style="background-image: url('./images/2.jpg')"
+            style="background-image: url('./images/2.png')"
           ></div>
           <!--<div class="slide" style="background-image:url('./images/3.jpg')"></div>-->
         </div>
@@ -907,5 +911,34 @@
     chatBox.style.display = "none";
   });
 </script>
+
+<!-- JS CARRUSEL VIDEOS -->
+ <script>
+  const videos = document.querySelectorAll(".carousel-video");
+  let currentIndex = 0;
+
+  function playVideo(index) {
+    videos.forEach((video, i) => {
+      video.pause();
+      video.currentTime = 0;
+      video.classList.remove("active");
+
+      if (i === index) {
+        video.classList.add("active");
+        video.play();
+      }
+    });
+  }
+
+  videos.forEach((video, index) => {
+    video.addEventListener("ended", () => {
+      currentIndex = (index + 1) % videos.length;
+      playVideo(currentIndex);
+    });
+  });
+
+  playVideo(currentIndex);
+</script>
+
   </body>
 </html>
