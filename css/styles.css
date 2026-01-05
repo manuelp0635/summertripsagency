@@ -221,6 +221,85 @@ body {
   }
 }
 
+/* ===============================
+   TOUR TYPES (Party / Relax / VIP)
+================================ */
+
+/* Base */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* PARTY */
+.card[data-type="party"] {
+  border-top: 5px solid #ff3cac;
+}
+
+.card[data-type="party"] .badge {
+  background: linear-gradient(135deg, #ff3cac, #784ba0);
+  color: #fff;
+}
+
+/* RELAX */
+.card[data-type="relax"] {
+  border-top: 5px solid #1abc9c;
+}
+
+.card[data-type="relax"] .badge {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: #fff;
+}
+
+/* VIP */
+.card[data-type="vip"] {
+  border-top: 5px solid #d4af37;
+}
+
+.card[data-type="vip"] .badge {
+  background: linear-gradient(135deg, #d4af37, #000);
+  color: #fff;
+}
+
+/* Hover premium */
+.card[data-type="vip"]:hover {
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+.card[data-type="party"]:hover {
+  box-shadow: 0 15px 40px rgba(255, 60, 172, 0.35);
+}
+
+.card[data-type="relax"]:hover {
+  box-shadow: 0 15px 40px rgba(26, 188, 156, 0.35);
+}
+
+.card[data-type="party"]::before {
+  content: "🎉 PARTY";
+}
+
+.card[data-type="relax"]::before {
+  content: "🌴 RELAX";
+}
+
+.card[data-type="vip"]::before {
+  content: "👑 VIP";
+}
+
+.card::before {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  z-index: 2;
+  font-weight: 600;
+}
+
+
 /* CONTENEDOR PRINCIPAL */
 .asesor-container {
   position: fixed;
