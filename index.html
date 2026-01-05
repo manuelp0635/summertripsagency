@@ -50,32 +50,30 @@
 
     <!-- VIDEOS RELACIONADOS + TEXTO -->
 
-    <section class="video-carousel">
-  <div class="video-wrapper">
+    <section class="video-carousel" id="inicio">
+      <div class="video-wrapper">
+        <!-- TEXTO SUPERPUESTO -->
+        <div class="video-overlay">
+          <h2>Somos <span>Summer Trips</span></h2>
+          <p>Tu agencia de turismo preferida</p>
+        </div>
 
-    <!-- TEXTO SUPERPUESTO -->
-    <div class="video-overlay">
-      <h2>Somos <span>Summer Trips</span></h2>
-      <p>Tu agencia de turismo preferida</p>
-    </div>
+        <!-- VIDEOS -->
+        <video
+          class="carousel-video active"
+          src="images/videos/1.mp4"
+          muted
+          playsinline
+        ></video>
 
-    <!-- VIDEOS -->
-    <video
-      class="carousel-video active"
-      src="images/videos/1.mp4"
-      muted
-      playsinline
-    ></video>
-
-    <video
-      class="carousel-video"
-      src="images/videos/2.mp4"
-      muted
-      playsinline
-    ></video>
-
-  </div>
-</section>
+        <video
+          class="carousel-video"
+          src="images/videos/2.mp4"
+          muted
+          playsinline
+        ></video>
+      </div>
+    </section>
 
     <!-- CARRUSEL -->
     <section class="carousel-section">
@@ -173,7 +171,7 @@
 
     <!-- TOURS -->
     <section id="tours" class="section">
-      <h2>Premium Experiences</h2>
+      <h2>Experiencias Premium</h2>
 
       <div class="cards">
         <!-- LUXURY OPEN BAR – BEACH -->
@@ -186,12 +184,18 @@
           ></div>
           <h3>Luxury Open Bar – Beach</h3>
           <p>
-            Open bar · Beach atmosphere · Rosario Islands
-            <br /><small>Transportation + Lunch included</small>
+            Open bar · Ambiente de playa · Islas del Rosario<br />
+            <small>Transporte + almuerzo incluidos</small>
           </p>
           <strong>$420.000 COP</strong>
-          <button onclick="addToCart('Luxury Open Bar – Beach',420000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Luxury Open Bar – Beach',
+        description:'Open bar, ambiente de playa en Islas del Rosario. Incluye transporte y almuerzo.',
+        price:420000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
@@ -205,17 +209,22 @@
           ></div>
           <h3>Traslado Aeropuerto – Hotel</h3>
           <p>
-            Transporte privado · Aire acondicionado
-            <br />
-            <small>Servicio seguro · Puntual</small>
+            Transporte privado · Aire acondicionado<br />
+            <small>Servicio seguro y puntual</small>
           </p>
           <strong>$60.000 COP</strong>
-          <button onclick="addToCart('Traslado Aeropuerto – Hotel',60000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Traslado Aeropuerto – Hotel',
+        description:'Transporte privado con aire acondicionado. Servicio seguro y puntual.',
+        price:60000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- ALQUILER DE LANCHA PRIVADA -->
+        <!-- LANCHA PRIVADA -->
         <article class="card" data-category="otros">
           <div
             class="thumb"
@@ -225,17 +234,22 @@
           ></div>
           <h3>Alquiler de Lancha Privada</h3>
           <p>
-            Islas del Rosario · Itinerario flexible
-            <br />
+            Islas del Rosario · Itinerario flexible<br />
             <small>Capitán incluido · Experiencia VIP</small>
           </p>
           <strong>$1.200.000 COP</strong>
-          <button onclick="addToCart('Alquiler de Lancha Privada',1200000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Alquiler de Lancha Privada',
+        description:'Lancha privada con capitán. Itinerario flexible por Islas del Rosario.',
+        price:1200000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- ALQUILER DE YATE -->
+        <!-- YATE -->
         <article class="card" data-category="otros">
           <div
             class="thumb"
@@ -245,17 +259,22 @@
           ></div>
           <h3>Alquiler de Yate</h3>
           <p>
-            Bahía de Cartagena · Lujo total
-            <br />
+            Bahía de Cartagena · Lujo total<br />
             <small>Tripulación incluida · Evento privado</small>
           </p>
           <strong>$2.500.000 COP</strong>
-          <button onclick="addToCart('Alquiler de Yate',2500000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Alquiler de Yate',
+        description:'Yate de lujo con tripulación incluida. Ideal para eventos privados.',
+        price:2500000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- LUXURY OPEN BAR – VIP -->
+        <!-- LUXURY VIP -->
         <article class="card" data-category="playa">
           <div
             class="thumb"
@@ -265,90 +284,22 @@
           ></div>
           <h3>Luxury Open Bar – VIP</h3>
           <p>
-            VIP beds · DJ · Unlimited drinks
-            <br /><small>Premium experience in Rosario Islands</small>
+            Camas VIP · DJ · Bebidas ilimitadas<br />
+            <small>Experiencia premium en Islas del Rosario</small>
           </p>
           <strong>$490.000 COP</strong>
-          <button onclick="addToCart('Luxury Open Bar – VIP',490000)">
-            Add to cart
-          </button>
-        </article>
-
-        <!-- PASADÍA GOLDEN HOTEL DORADO -->
-        <article class="card" data-category="otros">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80');
-            "
-          ></div>
-
-          <h3>Pasadía Golden Hotel Dorado</h3>
-
-          <p>
-            Piscina · Playa · Zona de descanso
-            <br />
-            <small>Acceso a instalaciones · Ambiente familiar</small>
-          </p>
-
-          <strong>$190.000 COP</strong>
-
-          <button onclick="addToCart('Pasadía Golden Hotel Dorado',190000)">
-            Add to cart
-          </button>
-        </article>
-
-        <!-- PASADÍA EN CHIRINGUITO (PLAYA BLANCA) -->
-        <article class="card" data-category="otros">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://scontent.fctg3-1.fna.fbcdn.net/v/t39.30808-6/227947409_4113450912086977_823866021865937356_n.png?stp=dst-jpg_p843x403_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFNZxLdaCClfEi22n9iTeCShnh4PAgctoGGeHg8CBy2gR78SPWK35SRg0uB1xYtpJNIyTwglrgV35ao_QZrcmJI&_nc_ohc=w6SyJ4m41AYQ7kNvwFBeSSc&_nc_oc=AdnWtefgA_VOxCtoqKUnowGHs5U9Ht5hORzKK1oDLtNFMg31fJAR8GUe4PzEBSDmq8g&_nc_zt=23&_nc_ht=scontent.fctg3-1.fna&_nc_gid=BT6HVx1Wh4rTGTMNx976bA&oh=00_Afr3Y78bXeXy8AKYHXugonQiDjDK3wiAlORowYXGm5jJww&oe=695E1D81');
-            "
-          ></div>
-
-          <h3>Pasadía en Chiringuito – Playa Blanca</h3>
-
-          <p>
-            Playa · Relax · Experiencia Caribe
-            <br />
-            <small>
-              Transporte ida y regreso en bus climatizado · Cóctel de bienvenida
-              · Acceso a playa privada · Camas asoleadoras · Baños y duchas ·
-              Wi-Fi · Almuerzo típico (pescado, pollo o vegetariano) · Ambiente
-              familiar y seguro
-            </small>
-          </p>
-
-          <strong>$120.000 COP por persona</strong>
-
           <button
-            onclick="addToCart('Pasadía en Chiringuito – Playa Blanca',120000)"
+            onclick="addToCart({
+        name:'Luxury Open Bar – VIP',
+        description:'Experiencia VIP con DJ, camas premium y bebidas ilimitadas.',
+        price:490000
+      })"
           >
-            Agregar al carrito
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- PAO PAO ISLAND -->
-        <article class="card" data-category="islas">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://viajeserviexpress.com/wp-content/uploads/isla-pao-pao-cartagena-600x389.jpeg');
-            "
-          ></div>
-          <h3>Pao Pao Island</h3>
-          <p>
-            Nature · Pool · Beach club
-            <br /><small>Speedboat + Welcome drink + Lunch</small>
-          </p>
-          <strong>$390.000 COP</strong>
-          <button onclick="addToCart('Pao Pao Island',390000)">
-            Add to cart
-          </button>
-        </article>
-
-         <!-- PLAYA TRANQUILA SECTOR PLAYA BLANCA -->
+        <!-- PLAYA TRANQUILA -->
         <article class="card" data-category="islas">
           <div
             class="thumb"
@@ -356,18 +307,61 @@
               background-image: url('https://albitourscartagena.com/wp-content/uploads/2025/01/Playa-Tranquila_0000_Capa-2-min.jpg');
             "
           ></div>
-          <h3>Playa blanca sector playa tranquila</h3>
+          <h3>Playa Tranquila – Playa Blanca</h3>
           <p>
-            Uso de las instalaciones · almuerzo tipico
-            <br /><small>Transporte ida y vuelta en bus climatizado · lancha hasta playa tranquila </small>
+            Uso de instalaciones · Almuerzo típico<br />
+            <small>Bus climatizado + lancha</small>
           </p>
           <strong>$100.000 COP</strong>
-          <button onclick="addToCart('Pao Pao Island',390000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Playa Tranquila – Playa Blanca',
+        description:'Incluye transporte en bus climatizado, lancha y almuerzo típico.',
+        price:100000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- CHOLÓN PARTY -->
+        <!-- PASADÍA CHIRINGUITO – PLAYA BLANCA -->
+        <article class="card featured" data-category="islas">
+          <!-- BADGE RECOMENDADO -->
+          <span class="badge">Más vendido · Instagrammable</span>
+
+          <div
+            class="thumb"
+            style="
+              background-image: url('images/chiringuito-playa-blanca.webp');
+            "
+            aria-label="Mural colorido con alas en Chiringuito Playa Blanca"
+          ></div>
+
+          <h3>Pasadía en Chiringuito – Playa Blanca</h3>
+
+          <p>
+            Playa · Relax · Spot fotográfico<br />
+            <small>
+              Transporte ida y vuelta · Cóctel de bienvenida · Almuerzo típico ·
+              WiFi · Baños · Camas asoleadoras
+            </small>
+          </p>
+
+          <strong>$120.000 COP</strong>
+
+          <button
+            class="btn-primary"
+            onclick="addToCart({
+      name:'Pasadía en Chiringuito – Playa Blanca',
+      description:'Pasadía en Chiringuito Playa Blanca con ambiente caribeño e instagrammable. Incluye transporte ida y vuelta en bus climatizado, cóctel de bienvenida, almuerzo típico y uso de las instalaciones: WiFi, baños, camas asoleadoras y spot fotográfico.',
+      price:120000
+    })"
+          >
+            Reservar experiencia
+          </button>
+        </article>
+
+        <!-- CHOLÓN -->
         <article class="card" data-category="fiesta">
           <div
             class="thumb"
@@ -377,400 +371,57 @@
           ></div>
           <h3>Cholón Party</h3>
           <p>
-            Music · Drinks · Party boat
-            <br /><small>Young vibe · Social experience</small>
+            Música · Bebidas · Fiesta en lancha<br />
+            <small>Ambiente joven y social</small>
           </p>
           <strong>$350.000 COP</strong>
-          <button onclick="addToCart('Cholón Party',350000)">
-            Add to cart
+          <button
+            onclick="addToCart({
+        name:'Cholón Party',
+        description:'Fiesta en lancha con música, bebidas y ambiente social.',
+        price:350000
+      })"
+          >
+            Reservar experiencia
           </button>
         </article>
 
-        <!-- Cartagena City Tour privado -->
-        <article class="card" data-category="otros">
+        <!-- TOUR BAHÍA PARTY – YATE -->
+        <article class="card featured" data-category="fiesta">
+          <!-- BADGE -->
+          <span class="badge">Más vendido</span>
+
           <div
             class="thumb"
             style="
-              background-image: url('data:image/jpeg;base64,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');
+              background-image: url('images/yate\ party.png');
             "
-          ></div>
-          <h3>Cartagena City Tour privado</h3>
-          <p>
-            Ciudad amurallada · Getsemaní · Castillo San Felipe
-            <br />
-            <small>Guía profesional · Tour exclusivo</small>
-          </p>
-          <strong>$280.000 COP</strong>
-          <button onclick="addToCart('Cartagena City Tour privado',280000)">
-            Add to cart
-          </button>
-        </article>
-
-        <!-- Cartagena City Tour en chiva -->
-        <article class="card" data-category="otros">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://estrellatourscartagena.com/wp-content/uploads/2018/10/CITY.jpg');
-            "
-          ></div>
-          <h3>Cartagena City Tour en chiva</h3>
-          <p>
-            Recorrido panorámico · Música · Ambiente festivo
-            <br />
-            <small>4 horas · Experiencia tradicional</small>
-          </p>
-          <strong>$80.000 COP</strong>
-          <button onclick="addToCart('Cartagena City Tour en chiva',80000)">
-            Add to cart
-          </button>
-        </article>
-
-        <!-- City Tour Barranquilla y Santa Marta -->
-        <article class="card" data-category="otros">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://cartagenatravelctg.com/wp-content/uploads/2024/08/Barranquilla-y-Santa-Marta-4.jpg');
-            "
+            aria-label="Fiesta en yate por la bahía de Cartagena"
           ></div>
 
-          <h3>City Tour Barranquilla & Santa Marta</h3>
+          <h3>Tour Bahía Party – Yate</h3>
 
           <p>
-            Recorrido cultural por Barranquilla y Santa Marta.
-            <br />
-            Conoce la Puerta de Oro de Colombia y la Perla de América.
-            <br />
-            <small>Guía bilingüe · Paradas turísticas</small>
+            Fiesta · Música · Bahía de Cartagena<br />
+            <small>
+              2 horas de recorrido · Barra libre · DJ · Animador · Entrada a
+              discoteca
+            </small>
           </p>
 
-          <strong>$280.000 COP</strong>
+          <strong>$120.000 COP</strong>
 
           <button
-            onclick="addToCart('City Tour Barranquilla & Santa Marta',280000)"
+            class="btn-primary"
+            onclick="addToCart({
+      name:'Tour Bahía Party – Yate',
+      description:'Tour por la bahía de Cartagena a bordo de un yate durante 2 horas. Incluye barra libre, DJ, animador y entrada libre a discoteca.',
+      price:120000
+    })"
           >
-            Add to cart
+            Reservar experiencia
           </button>
         </article>
-
-        <!-- TOUR BAHIA PARTY YATE -->
-        <article class="card" data-category="fiesta">
-          <div
-            class="thumb"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819');
-            "
-          ></div>
-          <h3>Tour Bahia party Yate</h3>
-          <p>
-            Embarcate en una experiencia inolvidable recorriendo la majestuosa
-            Bahia de Cartagena durante 2 horas a bordo de un yate que cuenta con
-            baño y un mirador perfecto en el segundo piso
-            <br /><small>Muelle de los pegasos</small>
-          </p>
-          <strong>$120.000 COP</strong>
-          <button onclick="addToCart('Tour Bahia party Yate',120000)">
-            Add to cart
-          </button>
-        </article>
-
-        <!-- AMO BEACH CLUB -
-    <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
-      <h3>Amo Beach Club</h3>
-      <p>Luxury beach club · Pool · Relax<br><small>Boat + Lunch included</small></p>
-      <strong>$430.000 COP</strong>
-      <button onclick="addToCart('Amo Beach Club',430000)">Add to cart</button>
-    </article>
-
-    <!-- BLUE APPLE BEACH -
-    <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-      <h3>Blue Apple Beach</h3>
-      <p>Exclusive island · Pool · Music<br><small>Transport + Lunch</small></p>
-      <strong>$450.000 COP</strong>
-      <button onclick="addToCart('Blue Apple Beach',450000)">Add to cart</button>
-    </article>
-
-    <!-- PLAYA TRANQUILA -
-    <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
-      <h3>Playa Tranquila</h3>
-      <p>Crystal waters · Snorkel<br><small>Boat + Lunch</small></p>
-      <strong>$320.000 COP</strong>
-      <button onclick="addToCart('Playa Tranquila',320000)">Add to cart</button>
-    </article>
-
-    <!-- ISLA BELLA -
-    <article class="card" data-category="islas">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
-      <h3>Isla Bella</h3>
-      <p>Nature · Private beach<br><small>Transport + Lunch</small></p>
-      <strong>$380.000 COP</strong>
-      <button onclick="addToCart('Isla Bella',380000)">Add to cart</button>
-    </article>
-
-    <!-- ISLA DEL ENCANTO -
-    <article class="card" data-category="islas">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1')"></div>
-      <h3>Isla del Encanto</h3>
-      <p>Family friendly · Pool<br><small>Boat + Buffet</small></p>
-      <strong>$410.000 COP</strong>
-      <button onclick="addToCart('Isla del Encanto',410000)">Add to cart</button>
-    </article>
-
-    <!-- TIERRA BOMBA -
-    <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
-      <h3>Tierra Bomba Beach</h3>
-      <p>Close to city · Chill vibe<br><small>Boat + Lunch</small></p>
-      <strong>$280.000 COP</strong>
-      <button onclick="addToCart('Tierra Bomba Beach',280000)">Add to cart</button>
-    </article>
-
-    <!-- BORA BORA BEACH -
-    <article class="card" data-category="playa">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
-      <h3>Bora Bora Beach Club</h3>
-      <p>Top rated · Party & relax<br><small>Boat + Lunch</small></p>
-      <strong>$440.000 COP</strong>
-      <button onclick="addToCart('Bora Bora Beach Club',440000)">Add to cart</button>
-    </article>
-
-    <!-- SUNSET PARTY BOAT -
-    <article class="card" data-category="fiesta">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
-      <h3>Sunset Party Boat</h3>
-      <p>DJ · Drinks · Sunset<br><small>2 hours experience</small></p>
-      <strong>$250.000 COP</strong>
-      <button onclick="addToCart('Sunset Party Boat',250000)">Add to cart</button>
-    </article>
-
-    <!-- CARTAGENA CITY TOUR -
-    <article class="card" data-category="ciudad">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
-      <h3>Cartagena City Tour</h3>
-      <p>Historic center · Getsemaní<br><small>Guide included</small></p>
-      <strong>$180.000 COP</strong>
-      <button onclick="addToCart('Cartagena City Tour',180000)">Add to cart</button>
-    </article>
-
-    <!-- CARTAGENA HISTÓRICA -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
-  <h3>Cartagena Histórica</h3>
-  <p>Ciudad amurallada · Cultura<br><small>Guía local incluido</small></p>
-  <strong>$180.000 COP</strong>
-  <button onclick="addToCart('Cartagena Histórica',180000)">Add to cart</button>
-</article>
-
-<!-- ISLAS DEL ROSARIO -
-<article class="card" data-category="islas">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1')"></div>
-  <h3>Islas del Rosario</h3>
-  <p>Mar cristalino · Snorkel<br><small>Lancha + Almuerzo</small></p>
-  <strong>$370.000 COP</strong>
-  <button onclick="addToCart('Islas del Rosario',370000)">Add to cart</button>
-</article>
-
-<!-- SAN ANDRÉS -
-<article class="card" data-category="islas">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
-  <h3>San Andrés</h3>
-  <p>Mar de 7 colores<br><small>Tour panorámico</small></p>
-  <strong>$420.000 COP</strong>
-  <button onclick="addToCart('San Andrés',420000)">Add to cart</button>
-</article>
-
-<!-- PROVIDENCIA -
-<article class="card" data-category="islas">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-  <h3>Providencia</h3>
-  <p>Isla natural · Relax<br><small>Experiencia eco</small></p>
-  <strong>$480.000 COP</strong>
-  <button onclick="addToCart('Providencia',480000)">Add to cart</button>
-</article>
-
-<!-- TAYRONA -
-<article class="card" data-category="naturaleza">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
-  <h3>Parque Tayrona</h3>
-  <p>Playas vírgenes · Selva<br><small>Entrada incluida</small></p>
-  <strong>$320.000 COP</strong>
-  <button onclick="addToCart('Parque Tayrona',320000)">Add to cart</button>
-</article>
-
-<!-- MINCA -
-<article class="card" data-category="montaña">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
-  <h3>Minca</h3>
-  <p>Café · Cascadas<br><small>Tour ecológico</small></p>
-  <strong>$220.000 COP</strong>
-  <button onclick="addToCart('Minca',220000)">Add to cart</button>
-</article>
-
-<!-- MEDELLÍN -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206')"></div>
-  <h3>Medellín City Tour</h3>
-  <p>Comuna 13 · Metrocable<br><small>Guía profesional</small></p>
-  <strong>$200.000 COP</strong>
-  <button onclick="addToCart('Medellín City Tour',200000)">Add to cart</button>
-</article>
-
-<!-- GUATAPÉ -
-<article class="card" data-category="montaña">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
-  <h3>Guatapé & Piedra del Peñol</h3>
-  <p>Vista panorámica<br><small>Transporte incluido</small></p>
-  <strong>$260.000 COP</strong>
-  <button onclick="addToCart('Guatapé',260000)">Add to cart</button>
-</article>
-
-<!-- SALENTO -
-<article class="card" data-category="montaña">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
-  <h3>Salento</h3>
-  <p>Pueblo colonial · Café<br><small>Experiencia cultural</small></p>
-  <strong>$240.000 COP</strong>
-  <button onclick="addToCart('Salento',240000)">Add to cart</button>
-</article>
-
-<!-- VALLE DEL COCORA -
-<article class="card" data-category="naturaleza">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
-  <h3>Valle del Cocora</h3>
-  <p>Palmas de cera<br><small>Caminata guiada</small></p>
-  <strong>$230.000 COP</strong>
-  <button onclick="addToCart('Valle del Cocora',230000)">Add to cart</button>
-</article>
-
-<!-- CAÑO CRISTALES -
-<article class="card" data-category="naturaleza">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0')"></div>
-  <h3>Caño Cristales</h3>
-  <p>Río de colores<br><small>Temporada especial</small></p>
-  <strong>$520.000 COP</strong>
-  <button onclick="addToCart('Caño Cristales',520000)">Add to cart</button>
-</article>
-
-<!-- DESIERTO DE LA TATACOA -
-<article class="card" data-category="naturaleza">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')"></div>
-  <h3>Desierto de la Tatacoa</h3>
-  <p>Paisaje árido · Astronomía<br><small>Tour nocturno</small></p>
-  <strong>$300.000 COP</strong>
-  <button onclick="addToCart('Desierto de la Tatacoa',300000)">Add to cart</button>
-</article>
-
-<!-- BOGOTÁ -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
-  <h3>Bogotá Cultural</h3>
-  <p>Monserrate · Museo Oro<br><small>Tour urbano</small></p>
-  <strong>$190.000 COP</strong>
-  <button onclick="addToCart('Bogotá Cultural',190000)">Add to cart</button>
-</article>
-
-<!-- VILLA DE LEYVA -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-  <h3>Villa de Leyva</h3>
-  <p>Arquitectura colonial<br><small>Excursión histórica</small></p>
-  <strong>$250.000 COP</strong>
-  <button onclick="addToCart('Villa de Leyva',250000)">Add to cart</button>
-</article>
-
-<!-- SANTA FE DE ANTIOQUIA -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd')"></div>
-  <h3>Santa Fe de Antioquia</h3>
-  <p>Pueblo patrimonial<br><small>Puente de Occidente</small></p>
-  <strong>$210.000 COP</strong>
-  <button onclick="addToCart('Santa Fe de Antioquia',210000)">Add to cart</button>
-</article>
-
-<!-- AMAZONAS -
-<article class="card" data-category="naturaleza">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
-  <h3>Amazonas Colombiano</h3>
-  <p>Selva · Cultura indígena<br><small>Tour ecoaventura</small></p>
-  <strong>$600.000 COP</strong>
-  <button onclick="addToCart('Amazonas Colombiano',600000)">Add to cart</button>
-</article>
-
-<!-- BAHÍA SOLANO -
-<article class="card" data-category="playa">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')"></div>
-  <h3>Bahía Solano</h3>
-  <p>Pacífico · Avistamiento ballenas<br><small>Temporada especial</small></p>
-  <strong>$550.000 COP</strong>
-  <button onclick="addToCart('Bahía Solano',550000)">Add to cart</button>
-</article>
-
-<!-- CAPURGANA -
-<article class="card" data-category="playa">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98')"></div>
-  <h3>Capurganá</h3>
-  <p>Playas vírgenes · Buceo<br><small>Plan completo</small></p>
-  <strong>$480.000 COP</strong>
-  <button onclick="addToCart('Capurganá',480000)">Add to cart</button>
-</article>
-
-<!-- BARICHARA -
-<article class="card" data-category="ciudad">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')"></div>
-  <h3>Barichara</h3>
-  <p>Pueblo más lindo de Colombia<br><small>Tour cultural</small></p>
-  <strong>$230.000 COP</strong>
-  <button onclick="addToCart('Barichara',230000)">Add to cart</button>
-</article>
-
-<!-- SAN GIL -
-<article class="card" data-category="aventura">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206')"></div>
-  <h3>San Gil</h3>
-  <p>Rafting · Aventura extrema<br><small>Actividades incluidas</small></p>
-  <strong>$290.000 COP</strong>
-  <button onclick="addToCart('San Gil',290000)">Add to cart</button>
-</article>
-
-<!-- CERRO DE MONSERRATE -
-<article class="card" data-category="montaña">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1587502537745-84c96c02a2bd')"></div>
-  <h3>Cerro de Monserrate</h3>
-  <p>Vista panorámica Bogotá<br><small>Teleférico incluido</small></p>
-  <strong>$160.000 COP</strong>
-  <button onclick="addToCart('Cerro de Monserrate',160000)">Add to cart</button>
-</article>
-
-<!-- NEVADO DEL RUIZ -
-<article class="card" data-category="montaña">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-  <h3>Nevado del Ruiz</h3>
-  <p>Nieve · Alta montaña<br><small>Excursión guiada</small></p>
-  <strong>$410.000 COP</strong>
-  <button onclick="addToCart('Nevado del Ruiz',410000)">Add to cart</button>
-</article>
-
-<!-- CABO DE LA VELA -
-<article class="card" data-category="playa">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')"></div>
-  <h3>Cabo de la Vela</h3>
-  <p>Desierto · Cultura Wayúu<br><small>Tour étnico</small></p>
-  <strong>$340.000 COP</strong>
-  <button onclick="addToCart('Cabo de la Vela',340000)">Add to cart</button>
-</article>
-
-<!-- PUNTA GALLINAS -
-<article class="card" data-category="playa">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0')"></div>
-  <h3>Punta Gallinas</h3>
-  <p>Punto más norte de Sudamérica<br><small>Aventura 4x4</small></p>
-  <strong>$520.000 COP</strong>
-  <button onclick="addToCart('Punta Gallinas',520000)">Add to cart</button>
-</article>-->
       </div>
     </section>
 
@@ -828,34 +479,31 @@
     </footer>
 
     <!-- ASESOR VIRTUAL -->
-<div class="asesor-container">
-  <button id="chat-toggle" aria-label="Asesor Virtual">
-    🌴
-  </button>
+    <div class="asesor-container">
+      <button id="chat-toggle" aria-label="Asesor Virtual">🌴</button>
 
-  <div class="chat-box" id="chatBox">
-    <div class="chat-header">
-      🌴 Summer Bot
-      <span id="chat-close">✕</span>
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          🌴 Summer Bot
+          <span id="chat-close">✕</span>
+        </div>
+
+        <div class="chat-body">
+          <p class="bot-msg">
+            👋 ¡Hola! Soy tu asesor virtual.<br />
+            ¿En qué tour te gustaría recibir información?
+          </p>
+
+          <a
+            href="https://wa.me/573128462567"
+            target="_blank"
+            class="whatsapp-btn"
+          >
+            📲 Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
-
-    <div class="chat-body">
-      <p class="bot-msg">
-        👋 ¡Hola! Soy tu asesor virtual.<br />
-        ¿En qué tour te gustaría recibir información?
-      </p>
-
-      <a
-        href="https://wa.me/573128462567"
-        target="_blank"
-        class="whatsapp-btn"
-      >
-        📲 Hablar por WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
 
     <!-- CART -->
     <div class="cart" id="cart">
@@ -896,48 +544,47 @@
     </script>
 
     <!-- Asesor virtual -->
-     <script>
-  const toggleBtn = document.getElementById("chat-toggle");
-  const chatBox = document.getElementById("chatBox");
-  const closeBtn = document.getElementById("chat-close");
+    <script>
+      const toggleBtn = document.getElementById("chat-toggle");
+      const chatBox = document.getElementById("chatBox");
+      const closeBtn = document.getElementById("chat-close");
 
-  toggleBtn.addEventListener("click", () => {
-    chatBox.style.display =
-      chatBox.style.display === "block" ? "none" : "block";
-  });
+      toggleBtn.addEventListener("click", () => {
+        chatBox.style.display =
+          chatBox.style.display === "block" ? "none" : "block";
+      });
 
-  closeBtn.addEventListener("click", () => {
-    chatBox.style.display = "none";
-  });
-</script>
+      closeBtn.addEventListener("click", () => {
+        chatBox.style.display = "none";
+      });
+    </script>
 
-<!-- JS CARRUSEL VIDEOS -->
- <script>
-  const videos = document.querySelectorAll(".carousel-video");
-  let currentIndex = 0;
+    <!-- JS CARRUSEL VIDEOS -->
+    <script>
+      const videos = document.querySelectorAll(".carousel-video");
+      let currentIndex = 0;
 
-  function playVideo(index) {
-    videos.forEach((video, i) => {
-      video.pause();
-      video.currentTime = 0;
-      video.classList.remove("active");
+      function playVideo(index) {
+        videos.forEach((video, i) => {
+          video.pause();
+          video.currentTime = 0;
+          video.classList.remove("active");
 
-      if (i === index) {
-        video.classList.add("active");
-        video.play();
+          if (i === index) {
+            video.classList.add("active");
+            video.play();
+          }
+        });
       }
-    });
-  }
 
-  videos.forEach((video, index) => {
-    video.addEventListener("ended", () => {
-      currentIndex = (index + 1) % videos.length;
+      videos.forEach((video, index) => {
+        video.addEventListener("ended", () => {
+          currentIndex = (index + 1) % videos.length;
+          playVideo(currentIndex);
+        });
+      });
+
       playVideo(currentIndex);
-    });
-  });
-
-  playVideo(currentIndex);
-</script>
-
+    </script>
   </body>
 </html>
