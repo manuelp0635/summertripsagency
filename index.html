@@ -312,12 +312,57 @@
 
     <!-- TESTIMONIAL -->
     <section class="testimonials">
-      <p>
-        ⭐⭐⭐⭐⭐ “Excellent service. We traveled to Cartagena and were very
-        happy with the attention and organization of the tours...”
-      </p>
-      <strong>Emily – USA</strong>
-    </section>
+  <h2>Lo que dicen nuestros clientes</h2><br>
+
+  <div class="testimonial-item">
+    <p>
+      ⭐⭐⭐⭐⭐ “Excellent service. We traveled to Cartagena and were very
+      happy with the attention and organization of the tours. Everything
+      exceeded our expectations.”
+    </p>
+    <strong>Emily – USA</strong>
+  </div>
+</section>
+
+<section class="review-form">
+  <h2>Déjanos tu opinión ⭐</h2>
+  <p>Tu experiencia es muy importante para nosotros</p>
+
+  <form id="whatsappReviewForm">
+    <!-- Estrellas -->
+    <div class="stars">
+      <input type="radio" name="rating" id="star5" value="5" required />
+      <label for="star5">★</label>
+
+      <input type="radio" name="rating" id="star4" value="4" />
+      <label for="star4">★</label>
+
+      <input type="radio" name="rating" id="star3" value="3" />
+      <label for="star3">★</label>
+
+      <input type="radio" name="rating" id="star2" value="2" />
+      <label for="star2">★</label>
+
+      <input type="radio" name="rating" id="star1" value="1" />
+      <label for="star1">★</label>
+    </div>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Tu nombre"
+      required
+    />
+
+    <textarea
+      id="message"
+      placeholder="Cuéntanos tu experiencia"
+      required
+    ></textarea>
+
+    <button type="submit">Enviar por WhatsApp</button>
+  </form>
+</section>
 
     <section class="seo-hidden">
       <h2>Tours en Cartagena Colombia</h2>
@@ -476,5 +521,38 @@
 
       playVideo(currentIndex);
     </script>
+
+    <!-- JS FORMULARIO -->
+     <script>
+document
+  .getElementById("whatsappReviewForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const rating = document.querySelector(
+      'input[name="rating"]:checked'
+    ).value;
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    const stars = "⭐".repeat(rating);
+
+    const whatsappMessage = `Hola 👋
+Quiero dejar mi reseña:
+
+${stars}
+Nombre: ${name}
+Comentario:
+${message}`;
+
+    const phone = "573128462567"; // TU NÚMERO
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(url, "_blank");
+  });
+</script>
+
   </body>
 </html>
