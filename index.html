@@ -426,13 +426,13 @@
     </section>
 
     <!-- MODAL -->
-    <div class="modal" id="tourModal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
+    <div class="modal" id="tourModal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <span class="close-modal" aria-label="Cerrar">&times;</span>
         <h3 id="modalTitle"></h3>
         <p id="modalDetails"></p>
         <strong id="modalPrice"></strong>
-        <button class="btn-primary">Reservar ahora</button>
+        <button class="btn-primary" id="modalReserveBtn">Reservar ahora</button>
       </div>
     </div>
 
@@ -620,6 +620,77 @@
       window.onclick = (e) => {
         if (e.target === modal) modal.style.display = "none";
       };
+    </script>
+
+    <!-- Tours funcional -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("tourModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDetails = document.getElementById("modalDetails");
+        const modalPrice = document.getElementById("modalPrice");
+        const modalReserveBtn = document.getElementById("modalReserveBtn");
+        const closeModal = document.querySelector(".close-modal");
+
+        let currentTour = null;
+
+        // 🔹 Abrir modal desde cada card
+        document.querySelectorAll(".card").forEach((card) => {
+          card.addEventListener("click", (e) => {
+            if (e.target.tagName.toLowerCase() === "button") return;
+
+            const title = card.querySelector("h3").innerText;
+            const details = card.querySelector("p").innerText;
+            const price = card.querySelector("strong").innerText;
+
+            currentTour = {
+              name: title,
+              price: parseInt(price.replace(/[^\d]/g, "")),
+            };
+
+            modalTitle.textContent = title;
+            modalDetails.textContent = details;
+            modalPrice.textContent = price;
+
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+
+            modalReserveBtn.focus();
+          });
+        });
+
+        // 🔹 Botón reservar dentro del modal
+        modalReserveBtn.addEventListener("click", () => {
+          if (typeof addToCart === "function" && currentTour) {
+            addToCart(currentTour);
+          }
+          closeModalFunction();
+        });
+
+        // 🔹 Función cerrar
+        function closeModalFunction() {
+          modal.classList.remove("active");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+        }
+
+        closeModal.addEventListener("click", closeModalFunction);
+
+        // 🔹 Cerrar al hacer click fuera
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModalFunction();
+          }
+        });
+
+        // 🔹 Cerrar con ESC
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeModalFunction();
+          }
+        });
+      });
     </script>
 
     <!-- TESTIMONIAL -->
@@ -868,6 +939,7 @@ ${message}`;
 
   </body>
 </html>
+
 
 
 
