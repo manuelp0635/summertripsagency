@@ -265,104 +265,362 @@
       <button onclick="filterTours('pasadia')">Pasadía</button>-->
       <button onclick="filterTours('otros')">Others</button>
     </section>
-
-    <!-- TOURS -->
-    <!-- TOURS -->
-    <section id="tours" class="section">
-      <h2>Experiencias Premium</h2>
-
+    
+  <section id="tours" class="section">
+      <h2 class="section-title">Experiencias Premium</h2>
+    
       <div class="cards">
-        <!-- RELAX -->
-        <article class="card" data-category="playa" data-type="relax">
+        <!-- LUXURY BEACH -->
+        <article
+          class="card"
+          data-category="playa"
+          data-type="relax"
+          data-title="Luxury Open Bar – Beach"
+          data-price="420000"
+          data-details="Incluye transporte marítimo ida y regreso, open bar nacional ilimitado, almuerzo típico, zona VIP frente al mar y asistencia personalizada. Duración: 8 horas."
+        >
           <div
             class="thumb"
             style="
-              background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+              background-image: url(&quot;https://images.unsplash.com/photo-1507525428034-b723cf961d3e&quot;);
             "
           ></div>
           <h3>Luxury Open Bar – Beach</h3>
           <p>Open bar · Playa<br /><small>Transporte + almuerzo</small></p>
           <strong>$420.000 COP</strong>
-          <button
-            onclick="addToCart({name:'Luxury Open Bar – Beach',price:420000})"
-          >
-            Reservar experiencia
-          </button>
+          <div class="card-buttons">
+            <button class="btn-outline view-details">Ver detalles</button>
+            <button
+              onclick="
+                addToCart({ name: 'Luxury Open Bar – Beach', price: 420000 })
+              "
+              class="btn-primary"
+            >
+              Reservar
+            </button>
+          </div>
         </article>
 
-        <!-- VIP -->
-        <article class="card" data-category="otros" data-type="vip">
+        <!-- YATE VIP -->
+        <article
+          class="card"
+          data-category="otros"
+          data-type="vip"
+          data-title="Alquiler de Yate"
+          data-price="2500000"
+          data-details="Alquiler privado con capitán y tripulación. Recorrido por Bahía de Cartagena, sonido Bluetooth, hielo incluido. Ideal para eventos exclusivos."
+        >
           <div
             class="thumb"
             style="
-              background-image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429');
+              background-image: url(&quot;https://images.unsplash.com/photo-1500534314209-a25ddb2bd429&quot;);
             "
           ></div>
           <h3>Alquiler de Yate</h3>
           <p>Bahía de Cartagena<br /><small>Evento privado</small></p>
           <strong>$2.500.000 COP</strong>
-          <button onclick="addToCart({name:'Alquiler de Yate',price:2500000})">
-            Reservar experiencia
-          </button>
+          <div class="card-buttons">
+            <button class="btn-outline view-details">Ver detalles</button>
+            <button
+              onclick="addToCart({ name: 'Alquiler de Yate', price: 2500000 })"
+              class="btn-primary"
+            >
+              Reservar
+            </button>
+          </div>
         </article>
 
-        <!-- RELAX -->
-        <article class="card featured" data-category="islas" data-type="relax">
+        <!-- CHIRINGUITO -->
+        <article
+          class="card featured"
+          data-category="islas"
+          data-type="relax"
+          data-title="Pasadía Chiringuito – Playa Blanca"
+          data-price="120000"
+          data-details="Transporte ida y regreso, almuerzo típico, cóctel de bienvenida y zona exclusiva en Playa Blanca. Día completo de relax."
+        >
           <span class="badge">Más vendido</span>
           <div
             class="thumb"
             style="
-              background-image: url('images/chiringuito-playa-blanca.webp');
+              background-image: url(&quot;images/chiringuito-playa-blanca.webp&quot;);
             "
           ></div>
           <h3>Pasadía Chiringuito – Playa Blanca</h3>
           <p>Playa · Relax<br /><small>Transporte + almuerzo</small></p>
           <strong>$120.000 COP</strong>
-          <button
-            class="btn-primary"
-            onclick="addToCart({name:'Pasadía Chiringuito',price:120000})"
-          >
-            Reservar experiencia
-          </button>
+          <div class="card-buttons">
+            <button class="btn-outline view-details">Ver detalles</button>
+            <button
+              onclick="
+                addToCart({ name: 'Pasadía Chiringuito', price: 120000 })
+              "
+              class="btn-primary"
+            >
+              Reservar
+            </button>
+          </div>
         </article>
 
-        <!-- PARTY -->
-        <article class="card" data-category="fiesta" data-type="party">
+        <!-- CHOLON PARTY -->
+        <article
+          class="card"
+          data-category="fiesta"
+          data-type="party"
+          data-title="Cholón Party"
+          data-price="350000"
+          data-details="Lancha rápida ida y regreso, música a bordo y ambiente festivo en Cholón. Duración aproximada 7 horas."
+        >
           <div
             class="thumb"
             style="
-              background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819');
+              background-image: url(&quot;https://images.unsplash.com/photo-1514525253161-7a46d19cd819&quot;);
             "
           ></div>
           <h3>Cholón Party</h3>
           <p>Música · Bebidas<br /><small>Fiesta en lancha</small></p>
           <strong>$350.000 COP</strong>
-          <button onclick="addToCart({name:'Cholón Party',price:350000})">
-            Reservar experiencia
-          </button>
+          <div class="card-buttons">
+            <button class="btn-outline view-details">Ver detalles</button>
+            <button
+              onclick="addToCart({ name: 'Cholón Party', price: 350000 })"
+              class="btn-primary"
+            >
+              Reservar
+            </button>
+          </div>
         </article>
 
-        <!-- PARTY -->
-        <article class="card featured" data-category="fiesta" data-type="party">
+        <!-- BAHIA PARTY -->
+        <article
+          class="card featured"
+          data-category="fiesta"
+          data-type="party"
+          data-title="Tour Bahía Party – Yate"
+          data-price="120000"
+          data-details="Recorrido nocturno por la bahía, DJ en vivo, barra libre nacional y animación. Ideal para iniciar la noche en Cartagena."
+        >
           <span class="badge">Más vendido</span>
           <div
             class="thumb"
-            style="background-image: url('images/yate party.png')"
+            style="background-image: url(&quot;images/yate party.png&quot;)"
           ></div>
           <h3>Tour Bahía Party – Yate</h3>
           <p>
             Fiesta en la bahía<br /><small>Barra libre · DJ · Discoteca</small>
           </p>
           <strong>$120.000 COP</strong>
-          <button
-            class="btn-primary"
-            onclick="addToCart({name:'Tour Bahía Party – Yate',price:120000})"
-          >
-            Reservar experiencia
-          </button>
+          <div class="card-buttons">
+            <button class="btn-outline view-details">Ver detalles</button>
+            <button
+              onclick="
+                addToCart({ name: 'Tour Bahía Party – Yate', price: 120000 })
+              "
+              class="btn-primary"
+            >
+              Reservar
+            </button>
+          </div>
         </article>
       </div>
     </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="tourModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDetails"></p>
+        <strong id="modalPrice"></strong>
+        <button class="btn-primary">Reservar ahora</button>
+      </div>
+    </div>
+
+    <style>
+      .section {
+        padding: 80px 5%;
+        background: #f8fafc;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      .filters {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+      .filter-btn {
+        border: none;
+        padding: 8px 18px;
+        margin: 5px;
+        border-radius: 25px;
+        cursor: pointer;
+        background: #eee;
+        transition: 0.3s;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: #ff7a00;
+        color: #fff;
+      }
+
+      .cards {
+        display: grid;
+        gap: 25px;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: 0.35s;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .thumb {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .card h3 {
+        padding: 15px 20px 0;
+      }
+      .card p {
+        padding: 0 20px;
+        font-size: 14px;
+        color: #666;
+      }
+      .card strong {
+        padding: 10px 20px;
+        display: block;
+      }
+
+      .card-buttons {
+        display: flex;
+        gap: 10px;
+        padding: 0 20px 20px;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        flex: 1;
+        padding: 8px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-primary {
+        background: #ff7a00;
+        color: #fff;
+        border: none;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #ff7a00;
+        color: #ff7a00;
+      }
+      .btn-outline:hover {
+        background: #ff7a00;
+        color: #fff;
+      }
+
+      .badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #ff7a00;
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+      }
+
+      /* MODAL */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 18px;
+        max-width: 450px;
+        width: 90%;
+        position: relative;
+      }
+      .close-modal {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        cursor: pointer;
+        font-size: 22px;
+      }
+
+      /* RESPONSIVE */
+      @media (min-width: 768px) {
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+
+    <script>
+      /* FILTROS */
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.onclick = function () {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+          const filter = this.dataset.filter;
+          document.querySelectorAll(".card").forEach((card) => {
+            card.style.display =
+              filter === "all" || card.dataset.category === filter
+                ? "block"
+                : "none";
+          });
+        };
+      });
+
+      /* MODAL */
+      const modal = document.getElementById("tourModal");
+      const title = document.getElementById("modalTitle");
+      const details = document.getElementById("modalDetails");
+      const price = document.getElementById("modalPrice");
+
+      document.querySelectorAll(".view-details").forEach((btn) => {
+        btn.onclick = function () {
+          const card = this.closest(".card");
+          title.textContent = card.dataset.title;
+          details.textContent = card.dataset.details;
+          price.textContent =
+            "$" + Number(card.dataset.price).toLocaleString() + " COP";
+          modal.style.display = "flex";
+        };
+      });
+
+      document.querySelector(".close-modal").onclick = () =>
+        (modal.style.display = "none");
+      window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      };
+    </script>
 
     <!-- TESTIMONIAL -->
     <section class="testimonials">
@@ -610,6 +868,7 @@ ${message}`;
 
   </body>
 </html>
+
 
 
 
