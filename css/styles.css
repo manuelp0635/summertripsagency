@@ -1000,6 +1000,55 @@ body {
   }
 }
 
+/* CONTENEDOR */
+.why-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px; /* espacio lateral para móvil */
+  text-align: center;
+}
+
+/* BOTÓN */
+.why-cta .btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Hover elegante */
+.why-cta .btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .why-cta {
+    padding: 30px 15px;
+  }
+
+  .why-cta .btn-primary {
+    width: 80%;
+    font-size: 15px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .why-cta .btn-primary {
+    width: 100%;
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+}
+
 /* =========================
    WHY US SECTION
 ========================= */
@@ -1231,6 +1280,7 @@ body {
   font-size: 0.85rem;
   opacity: 0.7;
 }
+
 
 
 
