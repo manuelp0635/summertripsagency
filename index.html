@@ -457,14 +457,14 @@
       </div>
     </section>
 
-    <!-- MODAL -->
+   <!-- MODAL -->
     <div class="modal" id="tourModal" aria-hidden="true">
       <div class="modal-content" role="dialog" aria-modal="true">
         <span class="close-modal" aria-label="Cerrar">&times;</span>
         <h3 id="modalTitle"></h3>
         <p id="modalDetails"></p>
         <strong id="modalPrice"></strong>
-        <button class="btn-primary" id="modalReserveBtn">Reservar ahora</button>
+        <button class="btn-primary reserve-btn" id="modalReserveBtn">Reservar ahora</button>
       </div>
     </div>
 
@@ -612,119 +612,122 @@
       }
     </style>
 
-    <script>
-      /* FILTROS */
-      document.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.onclick = function () {
-          document
-            .querySelectorAll(".filter-btn")
-            .forEach((b) => b.classList.remove("active"));
-          this.classList.add("active");
-          const filter = this.dataset.filter;
-          document.querySelectorAll(".card").forEach((card) => {
-            card.style.display =
-              filter === "all" || card.dataset.category === filter
-                ? "block"
-                : "none";
-          });
-        };
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     FILTROS
+  ========================== */
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.classList.remove("active"));
+
+      this.classList.add("active");
+
+      const filter = this.dataset.filter;
+
+      document.querySelectorAll(".card").forEach((card) => {
+        card.style.display =
+          filter === "all" || card.dataset.category === filter
+            ? "block"
+            : "none";
       });
+    });
+  });
 
-      /* MODAL */
-      const modal = document.getElementById("tourModal");
-      const title = document.getElementById("modalTitle");
-      const details = document.getElementById("modalDetails");
-      const price = document.getElementById("modalPrice");
+  /* =========================
+     MODAL
+  ========================== */
+  const modal = document.getElementById("tourModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDetails = document.getElementById("modalDetails");
+  const modalPrice = document.getElementById("modalPrice");
+  const modalReserveBtn = document.getElementById("modalReserveBtn");
+  const closeModal = document.querySelector(".close-modal");
 
-      document.querySelectorAll(".view-details").forEach((btn) => {
-        btn.onclick = function () {
-          const card = this.closest(".card");
-          title.textContent = card.dataset.title;
-          details.textContent = card.dataset.details;
-          price.textContent =
-            "$" + Number(card.dataset.price).toLocaleString() + " COP";
-          modal.style.display = "flex";
-        };
-      });
+  let selectedTour = null;
 
-      document.querySelector(".close-modal").onclick = () =>
-        (modal.style.display = "none");
-      window.onclick = (e) => {
-        if (e.target === modal) modal.style.display = "none";
-      };
-    </script>
+  function openModal(card) {
+    const title = card.dataset.title;
+    const details = card.dataset.details;
+    const price = card.dataset.price;
 
-    <!-- Tours funcional -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const modal = document.getElementById("tourModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalDetails = document.getElementById("modalDetails");
-        const modalPrice = document.getElementById("modalPrice");
-        const modalReserveBtn = document.getElementById("modalReserveBtn");
-        const closeModal = document.querySelector(".close-modal");
+    selectedTour = {
+      name: title,
+      price: parseInt(price)
+    };
 
-        let currentTour = null;
+    modalTitle.textContent = title;
+    modalDetails.textContent = details;
+    modalPrice.textContent =
+      "$" + Number(price).toLocaleString("es-CO") + " COP";
 
-        // 🔹 Abrir modal desde cada card
-        document.querySelectorAll(".card").forEach((card) => {
-          card.addEventListener("click", (e) => {
-            if (e.target.tagName.toLowerCase() === "button") return;
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
+  }
 
-            const title = card.querySelector("h3").innerText;
-            const details = card.querySelector("p").innerText;
-            const price = card.querySelector("strong").innerText;
+  function closeModalFn() {
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
+  }
 
-            currentTour = {
-              name: title,
-              price: parseInt(price.replace(/[^\d]/g, "")),
-            };
+  /* =========================
+     VER DETALLES
+  ========================== */
+  document.querySelectorAll(".view-details").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const card = this.closest(".card");
+      openModal(card);
+    });
+  });
 
-            modalTitle.textContent = title;
-            modalDetails.textContent = details;
-            modalPrice.textContent = price;
+  /* =========================
+     BOTÓN RESERVAR DE LA CARD
+  ========================== */
+  document.querySelectorAll(".reserve-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const card = this.closest(".card");
+      openModal(card);
+    });
+  });
 
-            modal.classList.add("active");
-            modal.setAttribute("aria-hidden", "false");
-            document.body.classList.add("modal-open");
+  /* =========================
+     RESERVAR DESDE MODAL
+  ========================== */
+  modalReserveBtn.addEventListener("click", function () {
+    if (selectedTour) {
+      addToCart(selectedTour);
+      closeModalFn();
+    }
+  });
 
-            modalReserveBtn.focus();
-          });
-        });
+  closeModal.addEventListener("click", closeModalFn);
 
-        // 🔹 Botón reservar dentro del modal
-        modalReserveBtn.addEventListener("click", () => {
-          if (typeof addToCart === "function" && currentTour) {
-            addToCart(currentTour);
-          }
-          closeModalFunction();
-        });
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) closeModalFn();
+  });
 
-        // 🔹 Función cerrar
-        function closeModalFunction() {
-          modal.classList.remove("active");
-          modal.setAttribute("aria-hidden", "true");
-          document.body.classList.remove("modal-open");
-        }
+});
 
-        closeModal.addEventListener("click", closeModalFunction);
+/* =========================
+   FUNCIÓN RESERVA
+========================== */
+function addToCart(tour) {
 
-        // 🔹 Cerrar al hacer click fuera
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            closeModalFunction();
-          }
-        });
+  // Guardar en localStorage (modo real)
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(tour);
+  localStorage.setItem("cart", JSON.stringify(cart));
 
-        // 🔹 Cerrar con ESC
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            closeModalFunction();
-          }
-        });
-      });
-    </script>
+  console.log("Tour agregado:", tour);
 
+  alert(
+    `Has reservado: ${tour.name} por $${tour.price.toLocaleString("es-CO")} COP`
+  );
+}
+</script>
     <!-- TESTIMONIAL -->
     <section class="testimonials">
   <h2>Lo que dicen nuestros clientes</h2><br>
@@ -962,6 +965,7 @@ ${message}`;
 
   </body>
 </html>
+
 
 
 
